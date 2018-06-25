@@ -83,6 +83,7 @@ export class FileBrowserState {
             nodeEntity.child = node.child;
             nodeEntity.name = entities.find(a => a.id === node.id).name;
             nodeEntity.type = entities.find(a => a.id === node.id).type;
+            nodeEntity.collapsed = false;
             return nodeEntity;
         });
 

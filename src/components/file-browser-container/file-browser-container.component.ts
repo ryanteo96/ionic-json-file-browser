@@ -17,9 +17,9 @@ export class FileBrowserContainerComponent implements OnInit {
                     console.log(this.plt.platforms());
 
                     if (this.plt.is('core')) {
-                    this.navCtrl.push(FileBrowserContainerCoreComponent);
+                        this.navCtrl.push(FileBrowserContainerCoreComponent);
                     } else if (this.plt.is('mobile')) {
-                    this.navCtrl.push(FileBrowserContainerMobileComponent);
+                        this.navCtrl.push(FileBrowserContainerMobileComponent);
                     }
                 }
 

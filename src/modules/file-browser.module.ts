@@ -12,6 +12,7 @@ import { FileBrowserHeaderComponent } from '../components/file-browser-header/fi
 import { FileBrowserListComponent } from '../components/file-browser-list/file-browser-list.component';
 import { FileBrowserListMobileComponent } from '../components/file-browser-list/file-browser-list-mobile.component';
 import { FileBrowserTreeComponent } from '../components/file-browser-tree/file-browser-tree.component';
+import { FileBrowserIconComponent } from '../components/file-browser-icon/file-browser-icon.component';
 // import { SidebarCardComponent } from '../components/sidebar-card.component';
 // Service imports
 import { FileBrowserList } from '../services/file-browser-list.service';
@@ -38,6 +39,7 @@ import { FileBrowserState } from '../states/file-browser.state';
         FileBrowserListComponent,
         FileBrowserListMobileComponent,
         FileBrowserTreeComponent,
+        FileBrowserIconComponent,
         // SidebarCardComponent
     ],
     exports: [
@@ -50,6 +52,7 @@ import { FileBrowserState } from '../states/file-browser.state';
         FileBrowserListComponent,
         FileBrowserListMobileComponent,
         FileBrowserTreeComponent,
+        FileBrowserIconComponent,
         // SidebarCardComponent
     ],
     entryComponents: [

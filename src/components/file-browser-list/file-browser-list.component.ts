@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FileBrowserState } from '../../states/file-browser.state';
 import { Store, Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { Entity } from '../../states/file-browser.model';
 import { FileBrowserList } from '../../services/file-browser-list.service';
+import { FileBrowserState } from '../../states/file-browser.state';
 import { GetNode } from '../../states/file-browser.actions';
 
 @Component({

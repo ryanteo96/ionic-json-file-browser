@@ -8,6 +8,7 @@ module.exports = {
         "{{SRC}}/components/file-browser-list/file-browser-list.scss",
         "{{SRC}}/components/file-browser-list/file-browser-list-mobile.scss",
         "{{SRC}}/components/file-browser-tree/file-browser-tree.scss",
+        "{{SRC}}/components/file-browser-icon/file-browser-icon.scss",
         ],
         dest: "{{WWW}}"
     }

@@ -15,10 +15,12 @@
 }
 
 file-browser-list {
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .sidebar {
     display: grid;
+    padding: 5px;
     height: 100%;
+    resize: horizontal;
 }
