@@ -1,0 +1,8 @@
+<div class="file-browser-history">
+    <ion-row class="grid-header">
+        <ng-container *ngFor="let history of history$ | async">
+            <ion-icon class="history-arrow" name="ios-arrow-forward">&nbsp;&nbsp;</ion-icon>
+            <a (click)="showNodeInHistory(history.id)">{{ history.name }} &nbsp;</a>
+        </ng-container>
+    </ion-row>
+</div>

@@ -1,0 +1,20 @@
+<div class="file-browser-list">
+    <ion-list>
+        <ion-grid class="table-grid">
+            <ng-container *ngIf="entities$">
+                <ng-container *ngFor="let entity of entities$ | async">
+                    <a>
+                        <ion-row class="grid-item" (dblclick)="showNode(entity.id)"
+                                oncontextmenu="return false">
+                            <ion-col col-7>
+                            {{ entity.name }}
+                            </ion-col>
+                        </ion-row>
+                    </a>
+                </ng-container>
+            </ng-container>
+        </ion-grid>
+    </ion-list>
+</div>
+
+<!-- (contextmenu)="presentActionSheet()" -->

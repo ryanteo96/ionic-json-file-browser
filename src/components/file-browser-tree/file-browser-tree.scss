@@ -1,0 +1,15 @@
+.tree-item {
+    padding: 5px;
+    font-size: 15px;
+}
+
+@for $i from 1 through 30 {
+    .item-level-#{$i} {
+        margin-left: ($i * 20px);
+    }
+}
+
+.icon {
+    width: 15px;
+    font-size: 15px;
+}
