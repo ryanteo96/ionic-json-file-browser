@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Node } from '../states/file-browser.model';
+import { NodeEntity } from '../states/file-browser.model';
 
 @Injectable()
-export class ListSortingService {
-    private nodes: Node[];
+export class NodeSortingService {
+    private nodes: NodeEntity[];
 
     constructor() {}
 
@@ -23,15 +23,15 @@ export class ListSortingService {
         return 0;
     }
 
-    sortNodes(field, array) {
+    sortNodes(sort, array) {
         this.nodes = array;
 
-        switch (field) {
-            case 'name-asc': {
+        switch (sort) {
+            case 'asc': {
                 this.nodes.sort(this.compareNamesAsc);
                 break;
             }
-            case 'name-desc': {
+            case 'desc': {
                 this.nodes.sort(this.compareNamesDesc);
                 break;
             }

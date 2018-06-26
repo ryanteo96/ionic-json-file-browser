@@ -3,7 +3,7 @@ import { Node, Entity } from './file-browser.model';
 export class GenerateFileBrowser {
     static readonly type = '[Browser] Set';
 
-    constructor(public nodes: Node[], public entities: Entity[], public root: number) {}
+    constructor(public nodes: Node[], public entities: Entity[]) {}
 }
 
 export class GetNode {
@@ -16,12 +16,6 @@ export class GenerateHistory {
     static readonly type = '[Browser] History';
 
     constructor(public node: number) {}
-}
-
-export class SortField {
-    static readonly type = '[Field] Sort';
-
-    constructor(public field: String) {}
 }
 
 export class NodeSelect {
@@ -46,4 +40,10 @@ export class ToggleFolder {
     static readonly type = '[Tree] ToggleFolder';
 
     constructor(public node: number) {}
+}
+
+export class SortNodes {
+    static readonly type = '[Node] Sort';
+
+    constructor(public sort: string) {}
 }

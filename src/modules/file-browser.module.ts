@@ -16,7 +16,7 @@ import { FileBrowserIconComponent } from '../components/file-browser-icon/file-b
 // import { SidebarCardComponent } from '../components/sidebar-card.component';
 // Service imports
 import { FileBrowserList } from '../services/file-browser-list.service';
-import { ListSortingService } from '../services/list-sorting.service';
+import { NodeSortingService } from '../services/node-sorting.service';
 // State imports
 import { FileBrowserState } from '../states/file-browser.state';
 
@@ -65,7 +65,7 @@ export class FileBrowserModule {
     static forRoot(): ModuleWithProviders {
         return {
             ngModule: FileBrowserModule,
-            providers: [FileBrowserList, ListSortingService]
+            providers: [FileBrowserList, NodeSortingService]
         };
     }
 }

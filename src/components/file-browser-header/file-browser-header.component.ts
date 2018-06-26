@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Store, Select } from '@ngxs/store';
+import { FileBrowserState } from '../../states/file-browser.state';
+import { FileBrowserList } from '../../services/file-browser-list.service';
 
 @Component({
     selector: 'file-browser-header',
@@ -6,7 +10,13 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ["file-browser-header.scss"]
 })
 export class FileBrowserHeaderComponent implements OnInit {
-    constructor() {}
+    @Select(FileBrowserState.getSort) sort$: Observable<String>;
+
+    constructor(private fileBrowserList: FileBrowserList) {}
 
     ngOnInit() {}
+
+    toggleSort(sort) {
+        this.fileBrowserList.toggleSort(sort);
+    }
 }

@@ -11,52 +11,47 @@ import {
     GenerateTreeLevels,
     GenerateHistory,
     ToggleFolder,
-    // SortField,
+    SortNodes,
     // NodeSelect,
 } from './file-browser.actions';
-import { ListSortingService } from '../services/list-sorting.service';
+import { NodeSortingService } from '../services/node-sorting.service';
 
 export interface FileBrowserStateModel {
     nodes: Node[];
-    // rootNode: Node;
+    entities: Entity[];
+    nodeEntity: NodeEntity[];
     currentNode: Node;
     childNodes: Node[];
-    entities: Entity[];
     currentEntity: Entity;
     childEntities: Entity[];
-    nodeEntity: NodeEntity[];
-    history: Entity[];
     nodeSelected: Node;
+    history: Entity[];
+    sort: String;
 }
 
 @State<FileBrowserStateModel>({
     name: 'browser',
     defaults : {
         nodes: [],
-        // rootNode: <Node>{},
+        entities: [],
+        nodeEntity: [],
         currentNode: <Node>{},
         childNodes: [],
-        entities: [],
         currentEntity: <Entity>{},
         childEntities: [],
-        nodeEntity: [],
-        history: [],
         nodeSelected: <Node>{},
+        history: [],
+        sort: 'asc',
     },
 })
 
 export class FileBrowserState {
-    constructor(private store: Store, private listSorting: ListSortingService) {}
+    constructor(private store: Store, private nodeSorting: NodeSortingService) {}
 
     @Selector()
     static getNodes(state: FileBrowserStateModel) {
         return state.nodeEntity;
     }
-
-    // @Selector()
-    // static getRoot(state: FileBrowserStateModel) {
-    //     return state.rootNode;
-    // }
 
     @Selector()
     static getChildEntities(state: FileBrowserStateModel) {
@@ -69,13 +64,19 @@ export class FileBrowserState {
     }
 
     @Selector()
+    static getSort(state: FileBrowserStateModel): String{
+        return state.sort;
+    }
+
+    @Selector()
     static getNodeSelected(state: FileBrowserStateModel) {
         console.log('here');
         return state.nodeSelected;
     }
 
     @Action(GenerateFileBrowser)
-    generateFileBrowser({ patchState }: StateContext<FileBrowserStateModel>, { nodes, entities, root }: GenerateFileBrowser) {
+    generateFileBrowser({ patchState }: StateContext<FileBrowserStateModel>, { nodes, entities }: GenerateFileBrowser) {
+        // Joining nodes and entities.
         const nodeEntity = nodes.map(function(node) {
             let nodeEntity = <NodeEntity>{};
             nodeEntity.id = node.id;
@@ -87,20 +88,20 @@ export class FileBrowserState {
             return nodeEntity;
         });
 
+        // Generating the first level of the tree.
         this.store.dispatch(new GenerateTreeFirstLevel());
 
         patchState({
-            // rootNode: nodes.find(a => a.id === root),
             nodes: nodes,
             entities: entities,
-            nodeEntity: nodeEntity,
+            nodeEntity: this.nodeSorting.sortNodes('asc', nodeEntity),
         });
     }
 
     @Action(GetNode) 
     getNode({ getState, patchState }: StateContext<FileBrowserStateModel>, { node }: GetNode) {
         const state = getState();
-        // Getting current node and child nodes.
+        // Getting current node.
         const currentNode = state.nodes.filter(a => a.id === node)[0];
         const childNodes = state.nodes.filter(a => a.parent === node);
         // Getting node entity and child entities.
@@ -113,7 +114,7 @@ export class FileBrowserState {
             currentNode: currentNode,
             childNodes: childNodes,
             currentEntity: currentEntity,
-            childEntities: childEntities,
+            childEntities: this.nodeSorting.sortNodes(state.sort, childEntities),
             history: [...state.history, currentEntity],
         });
     }
@@ -134,15 +135,14 @@ export class FileBrowserState {
     generateTreeFirstLevel({ getState, patchState }: StateContext<FileBrowserStateModel>) {
         const state = getState();
 
-        console.log('here');
-
-        // Assigning first level of tree
+        // Assigning first level of tree.
         state.nodeEntity.forEach(function(node) {
             if(node.parent < 0) {
                 node.level = 0;
             }
         });
 
+        // Generating other levels of the tree.
         this.store.dispatch(new GenerateTreeLevels(0));
 
         patchState({
@@ -156,7 +156,7 @@ export class FileBrowserState {
 
         const rootNodes = state.nodeEntity.filter(a => a.level === level);
 
-        // Assigning all other levels of tree
+        // Assigning all other levels of tree.
         rootNodes.forEach(function(node) {
             const childNodes = state.nodeEntity.find(a => a.id === node.id);
 
@@ -188,22 +188,13 @@ export class FileBrowserState {
         });
     }
 
-    // @Action(SortField) 
-    // sortField({ getState, patchState }: StateContext<FileBrowserStateModel>, { field }: SortField) {
-    //     const state = getState();
+    @Action(SortNodes) 
+    sortNodes({ getState, patchState}: StateContext<FileBrowserStateModel>, { sort }: SortNodes) {
+        const state = getState();
 
-    //     patchState({
-    //          nodes: this.objectSorting.sortObjects(field, state.nodes),
-    //     });
-    // }
-
-    // @Action(NodeSelect)
-    // nodeSelect({ getState, patchState }: StateContext<FileBrowserStateModel>, { node }: NodeSelect) {
-    //     const state = getState();
-
-    //     patchState({
-    //         ...state,
-    //         nodeSelected: node,
-    //     });
-    // }
+        patchState({
+            childEntities: this.nodeSorting.sortNodes(sort, state.childEntities),
+            sort: sort,
+        });
+    }
 }

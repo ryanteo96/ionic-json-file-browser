@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Store, Select } from '@ngxs/store';
+import { Store } from '@ngxs/store';
 import { Node, Entity } from '../states/file-browser.model';
-import { FileBrowserState } from '../states/file-browser.state';
-import { GenerateFileBrowser, GetNode, SortField, GenerateHistory } from '../states/file-browser.actions';
-import { Observable } from 'rxjs';
+import { GenerateFileBrowser, GetNode, SortNodes } from '../states/file-browser.actions';
 
 @Injectable()
 export class FileBrowserList {
@@ -22,9 +20,19 @@ export class FileBrowserList {
         } 
         // TO-DO check if currentNode does not exist.
 
-        this.store.dispatch(new GenerateFileBrowser(<any>nodes, <any>entities, node));
+        this.store.dispatch(new GenerateFileBrowser(<any>nodes, <any>entities));
         this.store.dispatch(new GetNode(node));
     }
+
+    toggleSort(sort) {
+        this.store.dispatch(new SortNodes(sort));
+    }
+}
+
+
+
+
+    
 
     // showNode(node) {
     //     this.store.dispatch(new GetNode(node));
@@ -69,4 +77,3 @@ export class FileBrowserList {
 
   //   actionSheet.present();
   // }
-}

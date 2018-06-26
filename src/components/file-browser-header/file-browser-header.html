@@ -1,8 +1,9 @@
 <div class="file-browser-header">
     <ion-row class="grid-header">
-        <ion-col col-7 class="grid-column">
+        <ion-col class="grid-column">
         Name&nbsp;&nbsp;
-        <ion-icon></ion-icon>
+        <ion-icon *ngIf="(sort$ | async) === 'asc'" name="md-arrow-down" (click)="toggleSort('desc')"></ion-icon>
+        <ion-icon *ngIf="(sort$ | async) === 'desc'" name="md-arrow-up" (click)="toggleSort('asc')"></ion-icon>
         </ion-col>
     </ion-row>
 </div>
