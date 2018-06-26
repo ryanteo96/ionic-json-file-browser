@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NavController, Platform } from 'ionic-angular';
 import { LoadingController, ActionSheetController } from 'ionic-angular';
 import { FileBrowserList } from '../../services/file-browser-list.service';
@@ -7,19 +7,25 @@ import { FileBrowserContainerMobileComponent } from '../file-browser-container/f
 
 @Component({
     selector: 'file-browser',
-    template: ``,
-    styles: [``],
+    template: '<ion-nav #myNav [root]="rootPage"></ion-nav>'
 })
 export class FileBrowserContainerComponent implements OnInit {
-    constructor(public navCtrl: NavController, public loadingCtrl: LoadingController,
-                public actionSheetCtrl: ActionSheetController, public fileBrowserList: FileBrowserList,
+    @ViewChild('myNav') nav: NavController;
+
+    public rootPage: any;
+
+    constructor(public loadingCtrl: LoadingController,
+                public actionSheetCtrl: ActionSheetController, 
+                public fileBrowserList: FileBrowserList,
                 public plt: Platform) {
                     // console.log(this.plt.platforms());
 
                     if (this.plt.is('core')) {
-                        this.navCtrl.push(FileBrowserContainerCoreComponent);
+                        this.rootPage = FileBrowserContainerCoreComponent;
+                        // this.nav.push(this.corePage);
                     } else if (this.plt.is('mobile')) {
-                        this.navCtrl.push(FileBrowserContainerMobileComponent);
+                        this.rootPage = FileBrowserContainerMobileComponent;
+                        // this.nav.push(this.mobilePage);
                     }
                 }
 

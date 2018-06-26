@@ -60,7 +60,7 @@ export class FileBrowserModule {
         return {
             ngModule: FileBrowserModule,
             providers: [FileBrowserList, NodeSortingService,
-                {provide: ErrorHandler, useClass: IonicErrorHandler}]
+                { provide: ErrorHandler, useClass: IonicErrorHandler }]
         };
     }
 }
