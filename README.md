@@ -6,7 +6,7 @@
 
 An Ionic module to render a file browser based on a JSON file.
 
-## Installation
+## Installation 🛠
 ```sh
 $ npm install ionic-json-file-browser
 ```
@@ -14,13 +14,13 @@ $ npm install ionic-json-file-browser
 ## How to use this API
 ### Work in progress
 
-## To-do
-General Functionality
+## To-do 📋
+General Functionality 
 - [ ] JSON importing (local/web)
 - [ ] Context Menu.
 - [ ] Unit Testing.
 
-Desktop
+Desktop 🖥
 - [x] List View.
 - [x] History View.
 - [x] File Navigation.
@@ -28,7 +28,7 @@ Desktop
 - [x] List Sorting.
 - [ ] File Icons.
 
-Mobile
+Mobile 📱
 - [ ] List View.
 - [ ] History View.
 - [ ] File Navigation.
