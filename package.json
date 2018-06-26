@@ -3,14 +3,22 @@
   "version": "0.0.13",
   "description": "Ionic module for file browser based on JSON.",
   "author": "Ryan Teo Yii Wen",
+  "license": "ISC",
   "homepage": "https://github.com/ryanteo96/ionic-json-file-browser",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryanteo96/ionic-json-file-browser.git"
+  },
   "scripts": {
     "clean": "ionic-app-scripts clean",
     "build": "ionic-app-scripts build",
     "lint": "ionic-app-scripts lint",
     "ionic:build": "ionic-app-scripts build",
     "ionic:serve": "ionic-app-scripts serve",
-    "packagr": "ng-packagr -p package.json"
+    "packagr": "ng-packagr -p package.json",
+    "patch": "npm version patch",
+    "minor": "npm version minor",
+    "major": "npm version major"
   },
   "ngPackage": {
     "lib": {
@@ -21,29 +29,38 @@
     "ionic_copy": "./config/copy.config.js"
   },
   "peerDependencies": {
-    "ionic-angular": "3.9.2",
-    "ionicons": "3.0.0",
-    "@ngxs/logger-plugin": "^3.1.4"
+    "@angular/animations": "^6.0.6",
+    "@angular/common": "^6.0.6",
+    "@angular/compiler": "^6.0.6",
+    "@angular/compiler-cli": "^6.0.6",
+    "@angular/core": "^6.0.6",
+    "@angular/forms": "^6.0.6",
+    "@angular/http": "^6.0.6",
+    "@ngxs/store": "^3.1.4",
+    "ionicons": "4.2.1",
+    "rxjs": "^6.2.1",
+    "rxjs-compat": "^6.2.1",
+    "ionic-angular": "3.9.2"
   },
   "devDependencies": {
-    "@angular/animations": "^6.0.5",
-    "@angular/common": "^6.0.5",
-    "@angular/compiler": "^6.0.5",
-    "@angular/compiler-cli": "^6.0.5",
-    "@angular/core": "^6.0.5",
-    "@angular/forms": "^6.0.5",
-    "@angular/http": "^6.0.5",
-    "@angular/platform-browser": "^6.0.5",
-    "@angular/platform-browser-dynamic": "^6.0.5",
+    "@angular/animations": "^6.0.6",
+    "@angular/common": "^6.0.6",
+    "@angular/compiler": "^6.0.6",
+    "@angular/compiler-cli": "^6.0.6",
+    "@angular/core": "^6.0.6",
+    "@angular/forms": "^6.0.6",
+    "@angular/http": "^6.0.6",
+    "@angular/platform-browser": "^6.0.6",
+    "@angular/platform-browser-dynamic": "^6.0.6",
     "@ionic/app-scripts": "3.1.10",
     "@ionic/storage": "2.1.3",
     "@ngxs/logger-plugin": "^3.1.4",
     "@ngxs/store": "^3.1.4",
     "rxjs": "^6.2.1",
     "rxjs-compat": "^6.2.1",
-    "typescript": "~2.7.2",
+    "typescript": "2.7.2",
     "ionic-angular": "3.9.2",
-    "ionicons": "3.0.0",
+    "ionicons": "4.2.1",
     "zone.js": "^0.8.26",
     "ng-packagr": "^3.0.3"
   }

@@ -4,7 +4,6 @@ import { Store, Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { Node } from '../../states/file-browser.model';
 import { FileBrowserList } from '../../services/file-browser-list.service';
-import { NodeSelect } from '../../states/file-browser.actions';
 
 @Component({
     selector: 'file-browser-list-mobile',

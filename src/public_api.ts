@@ -1,6 +1,6 @@
 export { FileBrowserModule } from './modules/file-browser.module';
 
-// export * from './components/file-browser-container/file-browser-container.component';
+export * from './components/file-browser-container/file-browser-container.component';
 // export * from './components/file-browser-container/file-browser-container-core.component';
 // export * from './components/file-browser-container/file-browser-container-mobile.component';
 // export * from './components/file-browser-history.component';

@@ -1,8 +1,13 @@
 // Module imports
-import { IonicModule } from 'ionic-angular';
-import { NgModule, ModuleWithProviders } from '@angular/core';
+import { IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { NgModule, ModuleWithProviders, ErrorHandler } from '@angular/core';
 import { NgxsModule } from '@ngxs/store';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
+// Service imports
+import { FileBrowserList } from '../services/file-browser-list.service';
+import { NodeSortingService } from '../services/node-sorting.service';
+// State imports
+import { FileBrowserState } from '../states/file-browser.state';
 // Component imports
 import { FileBrowserContainerComponent } from '../components/file-browser-container/file-browser-container.component';
 import { FileBrowserContainerCoreComponent } from '../components/file-browser-container/file-browser-container-core.component';
@@ -13,16 +18,9 @@ import { FileBrowserListComponent } from '../components/file-browser-list/file-b
 import { FileBrowserListMobileComponent } from '../components/file-browser-list/file-browser-list-mobile.component';
 import { FileBrowserTreeComponent } from '../components/file-browser-tree/file-browser-tree.component';
 import { FileBrowserIconComponent } from '../components/file-browser-icon/file-browser-icon.component';
-// import { SidebarCardComponent } from '../components/sidebar-card.component';
-// Service imports
-import { FileBrowserList } from '../services/file-browser-list.service';
-import { NodeSortingService } from '../services/node-sorting.service';
-// State imports
-import { FileBrowserState } from '../states/file-browser.state';
 
 @NgModule({
     imports: [
-        // Only if you use elements like ion-content, ion-xyz...
         IonicModule,
         NgxsModule.forRoot([
             FileBrowserState,
@@ -30,7 +28,6 @@ import { FileBrowserState } from '../states/file-browser.state';
         NgxsLoggerPluginModule.forRoot(),
     ],
     declarations: [
-        // declare all components that your module uses
         FileBrowserContainerComponent,
         FileBrowserContainerCoreComponent,
         FileBrowserContainerMobileComponent,
@@ -40,10 +37,8 @@ import { FileBrowserState } from '../states/file-browser.state';
         FileBrowserListMobileComponent,
         FileBrowserTreeComponent,
         FileBrowserIconComponent,
-        // SidebarCardComponent
     ],
     exports: [
-        // export the component(s) that you want others to be able to use
         FileBrowserContainerComponent,
         FileBrowserContainerCoreComponent,
         FileBrowserContainerMobileComponent,
@@ -53,7 +48,6 @@ import { FileBrowserState } from '../states/file-browser.state';
         FileBrowserListMobileComponent,
         FileBrowserTreeComponent,
         FileBrowserIconComponent,
-        // SidebarCardComponent
     ],
     entryComponents: [
         FileBrowserContainerComponent,
@@ -65,7 +59,8 @@ export class FileBrowserModule {
     static forRoot(): ModuleWithProviders {
         return {
             ngModule: FileBrowserModule,
-            providers: [FileBrowserList, NodeSortingService]
+            providers: [FileBrowserList, NodeSortingService,
+                {provide: ErrorHandler, useClass: IonicErrorHandler}]
         };
     }
 }

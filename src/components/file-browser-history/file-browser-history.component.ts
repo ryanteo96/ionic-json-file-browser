@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store, Select } from '@ngxs/store';
 import { FileBrowserState } from '../../states/file-browser.state'
-import { FileBrowserList } from '../../services/file-browser-list.service';
 import { GetNode, GenerateHistory } from '../../states/file-browser.actions';
 
 @Component({
@@ -13,7 +12,7 @@ import { GetNode, GenerateHistory } from '../../states/file-browser.actions';
 export class FileBrowserHistoryComponent implements OnInit {
     @Select(FileBrowserState.getHistory) history$: Observable<String>;
 
-    constructor(private store: Store, private fileBrowserList: FileBrowserList) {}
+    constructor(private store: Store) {}
 
     ngOnInit() {}
 

@@ -179,7 +179,6 @@ export class FileBrowserState {
     @Action(ToggleFolder)
     toggleFolder({ getState, patchState }: StateContext<FileBrowserStateModel>, { node }: ToggleFolder) {
         const state = getState();
-        let toggle: NodeEntity;
 
         state.nodeEntity.find(a => a.id === node).collapsed = !state.nodeEntity.find(a => a.id === node).collapsed;
 

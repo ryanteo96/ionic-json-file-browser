@@ -14,7 +14,7 @@ export class FileBrowserContainerComponent implements OnInit {
     constructor(public navCtrl: NavController, public loadingCtrl: LoadingController,
                 public actionSheetCtrl: ActionSheetController, public fileBrowserList: FileBrowserList,
                 public plt: Platform) {
-                    console.log(this.plt.platforms());
+                    // console.log(this.plt.platforms());
 
                     if (this.plt.is('core')) {
                         this.navCtrl.push(FileBrowserContainerCoreComponent);

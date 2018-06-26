@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Store, Select } from '@ngxs/store';
+import { Select } from '@ngxs/store';
 import { FileBrowserState } from '../../states/file-browser.state';
 import { FileBrowserList } from '../../services/file-browser-list.service';
 

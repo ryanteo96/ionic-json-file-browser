@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, Platform } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 import { LoadingController, ActionSheetController } from 'ionic-angular';
 import { FileBrowserList } from '../../services/file-browser-list.service';
 
