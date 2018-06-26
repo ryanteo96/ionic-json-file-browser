@@ -24,8 +24,8 @@ Desktop
 - [x] List View.
 - [x] History View.
 - [x] File Navigation.
-- [ ] Tree View.
-- [ ] List Sorting.
+- [x] Tree View.
+- [x] List Sorting.
 - [ ] File Icons.
 
 Mobile
