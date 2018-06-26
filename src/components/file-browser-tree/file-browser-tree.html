@@ -1,32 +1,34 @@
 <div class="file-browser-tree">
     <ion-list no-lines>
-        <ng-container *ngIf="nodes$">
-            <ng-container *ngFor="let node of nodes$ | async">
-                <ng-container *ngIf="node.parent < 0">
-                    <ion-row class="tree-item" (click)="toggleFolder(node.id)">
-                        <file-browser-icon [type]="node.type" [state]="node.collapsed"></file-browser-icon>
-                        {{ node.name }}
-                    </ion-row>    
-                    <ng-container *ngIf="node.collapsed">
-                        <ng-container *ngTemplateOutlet="subtree; context:{ $implicit: node }"></ng-container>
+        <ion-grid>
+            <ng-container *ngIf="nodes$">
+                <ng-container *ngFor="let node of nodes$ | async">
+                    <ng-container *ngIf="node.parent < 0">
+                        <ion-row class="tree-item" (click)="toggleFolder(node.id)">
+                            <file-browser-icon [type]="node.type" [state]="node.collapsed"></file-browser-icon>
+                            {{ node.name }}
+                        </ion-row>    
+                        <ng-container *ngIf="node.collapsed">
+                            <ng-container *ngTemplateOutlet="subtree; context:{ $implicit: node }"></ng-container>
+                        </ng-container>
                     </ng-container>
                 </ng-container>
             </ng-container>
-        </ng-container>
 
-        <ng-template #subtree let-parent>
-            <ng-container *ngFor="let node of nodes$ | async">
-                <ng-container *ngIf="node.parent === parent.id">
-                    <ion-row class="tree-item row {{'item-level-' + node.level}}" (click)="toggleFolder(node.id)">
-                        <file-browser-icon [type]="node.type" [state]="node.collapsed"></file-browser-icon>
-                        {{ node.name }}
-                    </ion-row>
+            <ng-template #subtree let-parent>
+                <ng-container *ngFor="let node of nodes$ | async">
+                    <ng-container *ngIf="node.parent === parent.id">
+                        <ion-row class="tree-item row {{'item-level-' + node.level}}" (click)="toggleFolder(node.id)">
+                            <file-browser-icon [type]="node.type" [state]="node.collapsed"></file-browser-icon>
+                            {{ node.name }}
+                        </ion-row>
 
-                    <ng-container *ngIf="node.collapsed">
-                        <ng-container *ngTemplateOutlet="subtree; context:{ $implicit: node }"></ng-container>
+                        <ng-container *ngIf="node.collapsed">
+                            <ng-container *ngTemplateOutlet="subtree; context:{ $implicit: node }"></ng-container>
+                        </ng-container>
                     </ng-container>
                 </ng-container>
-            </ng-container>
-        </ng-template>
+            </ng-template>
+        </ion-grid>
     </ion-list>
 </div>

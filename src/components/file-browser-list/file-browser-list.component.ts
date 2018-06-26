@@ -20,7 +20,8 @@ export class FileBrowserListComponent implements OnInit {
     ngOnInit() {}
 
     showNode(node) {
-        this.store.dispatch(new GetNode(node));
+        if (node.type === 'Folder')
+            this.store.dispatch(new GetNode(node.id));
     }
 
     // showNode(node) {

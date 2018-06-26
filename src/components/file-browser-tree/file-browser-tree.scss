@@ -1,6 +1,10 @@
+.file-browser-tree {
+    display: block;
+    height: 100%;
+}
+
 .tree-item {
     cursor: pointer;
-    padding: 5px;
     font-size: 15px;
     align-items: center;
 }
@@ -14,4 +18,9 @@
     .item-level-#{$i} {
         padding-left: ($i * 20px) !important;
     }
+}
+
+file-browser-icon {
+    width: 30px;
+    align-items: center;
 }

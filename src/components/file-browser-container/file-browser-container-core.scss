@@ -3,7 +3,7 @@
     position: absolute;
     height: 100%;
     width: 100%;
-    grid-template-columns: 45% 55%;
+    grid-template-columns: 25% 75%;
 }
 
 .main {
@@ -20,7 +20,10 @@ file-browser-list {
 
 .sidebar {
     display: grid;
-    padding: 5px;
-    height: 100%;
-    resize: horizontal;
+    padding: 0px 0px 5px 5px;
+    overflow: hidden;
+}
+
+file-browser-tree {
+    overflow: auto;
 }

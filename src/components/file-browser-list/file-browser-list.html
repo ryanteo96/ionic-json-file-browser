@@ -3,7 +3,7 @@
         <ion-grid class="table-grid-core">
             <ng-container *ngIf="entities$">
                 <ng-container *ngFor="let entity of entities$ | async">
-                    <ion-row class="grid-item" (click)="showNode(entity.id)" oncontextmenu="return false">
+                    <ion-row class="grid-item" (click)="showNode(entity)" oncontextmenu="return false">
                         <file-browser-icon [type]="entity.type"></file-browser-icon>
                         {{ entity.name }}
                     </ion-row>

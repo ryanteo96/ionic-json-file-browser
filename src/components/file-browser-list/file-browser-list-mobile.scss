@@ -12,11 +12,3 @@
     height: 40px;
     align-items: center;
 }
-
-.grid-item:hover {
-    cursor: pointer;
-    border: 2px solid #4d4d4d;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
-    transition: box-shadow 0.1s ease-in-out;
-}

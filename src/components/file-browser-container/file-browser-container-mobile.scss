@@ -1,25 +1,20 @@
-.file-browser-container {
-    display: grid;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background: rgb(255, 255, 255);
-    grid-template-columns: auto;
-}
+// .file-browser-container {
+//     display: grid;
+//     position: absolute;
+//     height: 100%;
+//     width: 100%;
+//     background: rgb(255, 255, 255);
+//     grid-template-columns: auto;
+// }
 
-.main {
-    display: grid;
-    padding: 0px 0px 15px 15px;
-    grid-template-rows: 40px 40px auto;
-    border-left: 1px solid #f2f2f2;
-    overflow-y: hidden;
-}
+// .main {
+//     display: grid;
+//     padding: 0px 0px 15px 15px;
+//     grid-template-rows: 40px 40px auto;
+//     border-left: 1px solid #f2f2f2;
+//     overflow-y: hidden;
+// }
 
 file-browser-list-mobile {
     overflow-y: scroll;
-}
-
-.sidebar {
-    display: grid;
-    height: 100%;
 }
