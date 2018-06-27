@@ -17,7 +17,6 @@ $ npm install ionic-json-file-browser
 ## To-do 📋
 General Functionality 
 - [ ] JSON importing (local/web)
-- [ ] Context Menu.
 - [ ] Unit Testing.
 
 Desktop 🖥
@@ -26,11 +25,13 @@ Desktop 🖥
 - [x] File Navigation.
 - [x] Tree View.
 - [x] List Sorting.
-- [ ] File Icons.
+- [x] File Icons.
+- [x] Context Menu.
 
 Mobile 📱
-- [ ] List View.
-- [ ] History View.
-- [ ] File Navigation.
-- [ ] List Sorting.
-- [ ] File Icons.
+- [x] List View.
+- [x] History View.
+- [x] File Navigation.
+- [x] List Sorting.
+- [x] File Icons.
+- [x] Context Menu.

@@ -14,6 +14,7 @@ export class TestPage implements OnInit {
   constructor(public navCtrl: NavController, private fileBrowserList: FileBrowserList) {}
 
   ngOnInit() {
+    // console.log(JSON.stringify(node));
     this.fileBrowserList.generateFileBrowser(<any>node, <any>entity, 0);
   }
 }

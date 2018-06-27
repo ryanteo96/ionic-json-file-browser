@@ -12,7 +12,7 @@ import {
     GenerateHistory,
     ToggleFolder,
     SortNodes,
-    // NodeSelect,
+    ShowTree,
 } from './file-browser.actions';
 import { NodeSortingService } from '../services/node-sorting.service';
 
@@ -27,6 +27,7 @@ export interface FileBrowserStateModel {
     nodeSelected: Node;
     history: NodeEntity[];
     sort: String;
+    sidebar: Boolean;
 }
 
 @State<FileBrowserStateModel>({
@@ -42,6 +43,7 @@ export interface FileBrowserStateModel {
         nodeSelected: <Node>{},
         history: [],
         sort: 'asc',
+        sidebar: true,
     },
 })
 
@@ -50,6 +52,11 @@ export class FileBrowserState {
 
     @Selector()
     static getNodes(state: FileBrowserStateModel) {
+        return state.nodes;
+    }
+
+    @Selector()
+    static getNodeEntity(state: FileBrowserStateModel) {
         return state.nodeEntity;
     }
 
@@ -64,14 +71,13 @@ export class FileBrowserState {
     }
 
     @Selector()
-    static getSort(state: FileBrowserStateModel): String{
+    static getSort(state: FileBrowserStateModel): String {
         return state.sort;
     }
 
     @Selector()
-    static getNodeSelected(state: FileBrowserStateModel) {
-        console.log('here');
-        return state.nodeSelected;
+    static getSidebar(state: FileBrowserStateModel): Boolean {
+        return state.sidebar;
     }
 
     @Action(GenerateFileBrowser)
@@ -115,7 +121,6 @@ export class FileBrowserState {
             childNodes: childNodes,
             currentEntity: currentEntity,
             childEntities: this.nodeSorting.sortNodes(state.sort, childEntities),
-            // history: [...state.history, currentEntity],
         });
 
         this.store.dispatch(new GenerateHistory(node));
@@ -141,8 +146,6 @@ export class FileBrowserState {
                     history.push(node);
                     node = state.nodeEntity.find(a => a.id === node.parent);
                     level--;
-                    console.log(history);
-                    console.log(node);
                 }
 
                 patchState({
@@ -215,12 +218,21 @@ export class FileBrowserState {
     }
 
     @Action(SortNodes) 
-    sortNodes({ getState, patchState}: StateContext<FileBrowserStateModel>, { sort }: SortNodes) {
+    sortNodes({ getState, patchState }: StateContext<FileBrowserStateModel>, { sort }: SortNodes) {
         const state = getState();
 
         patchState({
             childEntities: this.nodeSorting.sortNodes(sort, state.childEntities),
             sort: sort,
+        });
+    }
+
+    @Action(ShowTree)
+    showTree({ getState, patchState }: StateContext<FileBrowserStateModel>) {
+        const state = getState();
+
+        patchState({
+            sidebar: !state.sidebar,
         });
     }
 }

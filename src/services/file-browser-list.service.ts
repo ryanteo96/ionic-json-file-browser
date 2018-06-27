@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngxs/store';
 import { Node, Entity } from '../states/file-browser.model';
-import { GenerateFileBrowser, GetNode, SortNodes } from '../states/file-browser.actions';
+import { GenerateFileBrowser, GetNode, SortNodes, ShowTree } from '../states/file-browser.actions';
 
 @Injectable()
 export class FileBrowserList {
@@ -26,6 +26,10 @@ export class FileBrowserList {
 
     toggleSort(sort) {
         this.store.dispatch(new SortNodes(sort));
+    }
+
+    showTree() {
+        this.store.dispatch(new ShowTree());
     }
 }
 

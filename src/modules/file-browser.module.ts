@@ -1,5 +1,7 @@
 // Module imports
 import { IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, ModuleWithProviders, ErrorHandler } from '@angular/core';
 import { NgxsModule } from '@ngxs/store';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
@@ -23,6 +25,8 @@ import { FileBrowserActionSheetComponent } from '../components/file-browser-acti
 @NgModule({
     imports: [
         IonicModule,
+        BrowserModule,
+        BrowserAnimationsModule,
         NgxsModule.forRoot([
             FileBrowserState,
         ]),

@@ -14,7 +14,7 @@ import { FileBrowserActionSheetComponent } from '../file-browser-action-sheet/fi
     providers: [FileBrowserActionSheetComponent]
 })
 export class FileBrowserListComponent implements OnInit {
-    @Select(FileBrowserState.getChildEntities) entities$: Observable<Entity>;
+    @Select(FileBrowserState.getChildEntities) nodes$: Observable<Entity>;
 
     constructor(public store: Store, public fileBrowserList: FileBrowserList,
                 public fileBrowserActionSheet: FileBrowserActionSheetComponent) {}
@@ -27,8 +27,6 @@ export class FileBrowserListComponent implements OnInit {
     }
 
     showActionSheet(node) {
-        console.log(node.type);
-        this.fileBrowserActionSheet.presentActionSheet();
+        this.fileBrowserActionSheet.presentActionSheet(node.type);
     }
-
 }

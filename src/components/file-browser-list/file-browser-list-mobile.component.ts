@@ -1,28 +1,34 @@
 import { Component, OnInit } from '@angular/core';
-import { FileBrowserState } from '../../states/file-browser.state';
 import { Store, Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
-import { Node } from '../../states/file-browser.model';
+import { Entity } from '../../states/file-browser.model';
+import { FileBrowserState } from '../../states/file-browser.state';
+import { GetNode } from '../../states/file-browser.actions';
 import { FileBrowserList } from '../../services/file-browser-list.service';
+import { FileBrowserActionSheetComponent } from '../file-browser-action-sheet/file-browser-action-sheet.component';
 
 @Component({
     selector: 'file-browser-list-mobile',
     templateUrl: 'file-browser-list-mobile.html',
-    styleUrls: ['file-browser-list-mobile.scss']
+    styleUrls: ['file-browser-list-mobile.scss'],
+    providers: [FileBrowserActionSheetComponent]
 })
 export class FileBrowserListMobileComponent implements OnInit {
 
-    @Select(FileBrowserState.getNodes) nodes$: Observable<Node>;
+    @Select(FileBrowserState.getChildEntities) nodes$: Observable<Entity>;
 
-    constructor(public store: Store, public fileBrowserList: FileBrowserList) {}
+    constructor(public store: Store, public fileBrowserList: FileBrowserList,
+                public fileBrowserActionSheet: FileBrowserActionSheetComponent) {}
 
     ngOnInit() {}
 
-    // nodeSelect(node) : void {
-    //     this.store.dispatch(new NodeSelect(node));
-    // }
+    showNode(node) {
+        if (node.type === 'Folder')
+            this.store.dispatch(new GetNode(node.id));
+    }
 
-    // showNode(node) {
-    //     this.fileBrowserList.showNode(node);
-    // }
+    showActionSheet(node) {
+        event.stopPropagation();
+        this.fileBrowserActionSheet.presentActionSheet(node.type);
+    }
 }

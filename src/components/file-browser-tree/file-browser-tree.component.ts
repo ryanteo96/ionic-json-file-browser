@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store, Select } from '@ngxs/store';
 import { FileBrowserState } from '../../states/file-browser.state';
-import { Node } from '../../states/file-browser.model';
+import { NodeEntity } from '../../states/file-browser.model';
 import { ToggleFolder, GetNode } from '../../states/file-browser.actions';
 import { FileBrowserList } from '../../services/file-browser-list.service';
 import { FileBrowserActionSheetComponent } from '../file-browser-action-sheet/file-browser-action-sheet.component';
@@ -15,7 +15,7 @@ import { FileBrowserActionSheetComponent } from '../file-browser-action-sheet/fi
 })
 export class FileBrowserTreeComponent implements OnInit {
 
-    @Select(FileBrowserState.getNodes) nodes$: Observable<Node>;
+    @Select(FileBrowserState.getNodeEntity) nodes$: Observable<NodeEntity>;
 
     constructor(public store: Store, public fileBrowserList: FileBrowserList,
                 public fileBrowserActionSheet: FileBrowserActionSheetComponent) {}
@@ -33,7 +33,6 @@ export class FileBrowserTreeComponent implements OnInit {
     }
 
     showActionSheet(node) {
-        console.log(node.type);
-        this.fileBrowserActionSheet.presentActionSheet();
+        this.fileBrowserActionSheet.presentActionSheet(node.type);
     }
 }

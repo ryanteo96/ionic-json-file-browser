@@ -1,9 +1,16 @@
-.file-browser-container {
+.file-browser-container-sidebar {
     display: grid;
     position: absolute;
     height: 100%;
     width: 100%;
     grid-template-columns: 25% 75%;
+}
+
+.file-browser-container-no-sidebar {
+    display: grid;
+    position: absolute;
+    height: 100%;
+    width: 100%;
 }
 
 .main {

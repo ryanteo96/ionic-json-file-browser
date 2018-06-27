@@ -19,4 +19,10 @@ export class FileBrowserHeaderComponent implements OnInit {
     toggleSort(sort) {
         this.fileBrowserList.toggleSort(sort);
     }
+
+    showTree() {
+        this.fileBrowserList.showTree();
+    }
+
+
 }

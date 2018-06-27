@@ -1,16 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { LoadingController, ActionSheetController } from 'ionic-angular';
+import { NavController, LoadingController, ActionSheetController } from 'ionic-angular';
+import { Observable } from 'rxjs';
+import { Select } from '@ngxs/store';
 import { FileBrowserList } from '../../services/file-browser-list.service';
+import { FileBrowserState } from '../../states/file-browser.state';
 
 @Component({
     selector: 'file-browser-core',
     templateUrl: 'file-browser-container-core.html',
-    styleUrls: ['file-browser-container-core.scss']
+    styleUrls: ['file-browser-container-core.scss'],
   })
   export class FileBrowserContainerCoreComponent implements OnInit {
-    nameSort: string = 'arrow-down';
-  
+    @Select(FileBrowserState.getSidebar) sidebar$: Observable<Boolean>;
+
     constructor(public navCtrl: NavController, public loadingCtrl: LoadingController,
                 public actionSheetCtrl: ActionSheetController, public fileBrowserList: FileBrowserList) {
     }

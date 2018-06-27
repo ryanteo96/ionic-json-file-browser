@@ -17,7 +17,6 @@ export class FileBrowserHistoryComponent implements OnInit {
     ngOnInit() {}
 
     showNodeInHistory(node) {
-        this.store.dispatch(new GetNode(node))
-        // this.store.dispatch(new GenerateHistory(node));
+        this.store.dispatch(new GetNode(node));
     }
 }

@@ -11,18 +11,44 @@ export class FileBrowserActionSheetComponent implements OnInit {
 
     ngOnInit() {}
 
-    presentActionSheet() {
-        let actionSheet = this.actionSheetCtrl.create({
-            title: 'Options',
-            buttons: [
-                {
-                    text: 'New Folder',
-                    handler: () => {
-                        console.log('New Folder Triggered.');
-                    }
-                },
-            ]
-        });
+    presentActionSheet(type) {
+        let actionSheet = this.actionSheetCtrl.create(this.getActionSheetOptions(type));
         actionSheet.present();
+    }
+
+    getActionSheetOptions(type) {
+        let actionSheet;
+
+        if (type === 'Folder') {
+            actionSheet = {
+                title: 'Options',
+                buttons: [
+                    {
+                        text: 'New Folder',
+                        handler: () => {
+                            console.log('New Folder Triggered.');
+                        }
+                    },
+                ]
+            }
+            
+            return actionSheet;
+        }
+
+        if (type === 'Document') {
+            actionSheet = {
+                title: 'Options',
+                buttons: [
+                    {
+                        text: 'Rename',
+                        handler: () => {
+                            console.log('Rename Document Triggered.');
+                        }
+                    },
+                ]
+            }
+
+            return actionSheet;
+        }
     }
 }
