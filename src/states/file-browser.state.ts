@@ -25,7 +25,7 @@ export interface FileBrowserStateModel {
     currentEntity: Entity;
     childEntities: Entity[];
     nodeSelected: Node;
-    history: Entity[];
+    history: NodeEntity[];
     sort: String;
 }
 
@@ -115,20 +115,47 @@ export class FileBrowserState {
             childNodes: childNodes,
             currentEntity: currentEntity,
             childEntities: this.nodeSorting.sortNodes(state.sort, childEntities),
-            history: [...state.history, currentEntity],
+            // history: [...state.history, currentEntity],
         });
+
+        this.store.dispatch(new GenerateHistory(node));
     }
 
     @Action(GenerateHistory)
     generateHistory({ getState, patchState }: StateContext<FileBrowserStateModel>, { node }: GenerateHistory) {
         const state = getState();
         // Getting index of current node in history.
-        const currentNode = state.history.find(a => a.id === node);
-        const index = state.history.indexOf(currentNode) + 1;
+        const currentNode = state.nodeEntity.find(a => a.id === node);
 
-        patchState({
-            history: state.history.slice(0, index),
-        });
+        if (state.history.indexOf(currentNode) < 0) {
+            if (currentNode.level === 0) {
+                patchState({
+                    history: state.history.concat(currentNode),
+                });
+            } else {
+                let level = currentNode.level;
+                let history: NodeEntity[] = [];
+                let node = currentNode;
+
+                while (level >= 0) {
+                    history.push(node);
+                    node = state.nodeEntity.find(a => a.id === node.parent);
+                    level--;
+                    console.log(history);
+                    console.log(node);
+                }
+
+                patchState({
+                    history: history.reverse(),
+                });
+            }
+        } else {
+            const index = state.history.indexOf(currentNode) + 1;
+
+            patchState({
+                history: state.history.slice(0, index),
+            });
+        }
     }
 
     @Action(GenerateTreeFirstLevel)

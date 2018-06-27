@@ -3,34 +3,37 @@ import { Observable } from 'rxjs';
 import { Store, Select } from '@ngxs/store';
 import { FileBrowserState } from '../../states/file-browser.state';
 import { Node } from '../../states/file-browser.model';
-import { ToggleFolder } from '../../states/file-browser.actions';
+import { ToggleFolder, GetNode } from '../../states/file-browser.actions';
 import { FileBrowserList } from '../../services/file-browser-list.service';
-// import { NodeSelect } from '../states/file-browser.actions';
+import { FileBrowserActionSheetComponent } from '../file-browser-action-sheet/file-browser-action-sheet.component';
 
 @Component({
     selector: 'file-browser-tree',
     templateUrl: 'file-browser-tree.html',
-    styleUrls: ['file-browser-tree.scss']
+    styleUrls: ['file-browser-tree.scss'],
+    providers: [FileBrowserActionSheetComponent]
 })
 export class FileBrowserTreeComponent implements OnInit {
 
     @Select(FileBrowserState.getNodes) nodes$: Observable<Node>;
 
-    // @Select(FileBrowserState.getRoot) root$: Observable<Node>;
-
-    constructor(public store: Store, public fileBrowserList: FileBrowserList) {}
+    constructor(public store: Store, public fileBrowserList: FileBrowserList,
+                public fileBrowserActionSheet: FileBrowserActionSheetComponent) {}
 
     ngOnInit() {}
 
     toggleFolder(node) {
-        this.store.dispatch(new ToggleFolder(node));
+        event.stopPropagation();
+        this.store.dispatch(new ToggleFolder(node.id));
     }
 
-    // nodeSelect(node) : void {
-    //     this.store.dispatch(new NodeSelect(node));
-    // }
+    showNode(node) {
+        if (node.type === 'Folder')
+            this.store.dispatch(new GetNode(node.id));
+    }
 
-    // showNode(node) {
-    //     this.fileBrowserList.showNode(node);
-    // }
+    showActionSheet(node) {
+        console.log(node.type);
+        this.fileBrowserActionSheet.presentActionSheet();
+    }
 }
