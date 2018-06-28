@@ -4,7 +4,7 @@ import { Store, Select } from '@ngxs/store';
 import { FileBrowserState } from '../../states/file-browser.state';
 import { NodeEntity } from '../../states/file-browser.model';
 import { ToggleFolder, GetNode } from '../../states/file-browser.actions';
-import { FileBrowserList } from '../../services/file-browser-list.service';
+import { FileBrowser } from '../../services/file-browser.service';
 import { FileBrowserActionSheetComponent } from '../file-browser-action-sheet/file-browser-action-sheet.component';
 
 @Component({
@@ -17,7 +17,7 @@ export class FileBrowserTreeComponent implements OnInit {
 
     @Select(FileBrowserState.getNodeEntity) nodes$: Observable<NodeEntity>;
 
-    constructor(public store: Store, public fileBrowserList: FileBrowserList,
+    constructor(public store: Store, public fileBrowser: FileBrowser,
                 public fileBrowserActionSheet: FileBrowserActionSheetComponent) {}
 
     ngOnInit() {}

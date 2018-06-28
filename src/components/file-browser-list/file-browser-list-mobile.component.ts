@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Entity } from '../../states/file-browser.model';
 import { FileBrowserState } from '../../states/file-browser.state';
 import { GetNode } from '../../states/file-browser.actions';
-import { FileBrowserList } from '../../services/file-browser-list.service';
+import { FileBrowser } from '../../services/file-browser.service';
 import { FileBrowserActionSheetComponent } from '../file-browser-action-sheet/file-browser-action-sheet.component';
 
 @Component({
@@ -17,7 +17,7 @@ export class FileBrowserListMobileComponent implements OnInit {
 
     @Select(FileBrowserState.getChildEntities) nodes$: Observable<Entity>;
 
-    constructor(public store: Store, public fileBrowserList: FileBrowserList,
+    constructor(public store: Store, public fileBrowser: FileBrowser,
                 public fileBrowserActionSheet: FileBrowserActionSheetComponent) {}
 
     ngOnInit() {}

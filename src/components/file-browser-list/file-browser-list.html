@@ -3,11 +3,13 @@
         <ion-grid class="table-grid-core">
             <ng-container *ngIf="nodes$">
                 <ng-container *ngFor="let node of nodes$ | async">
-                    <ion-row class="grid-item" (click)="showNode(node)" oncontextmenu="return false"
+                    <div class="list-row" (click)="showNode(node)" oncontextmenu="return false"
                         (contextmenu)="showActionSheet(node)">
-                        <file-browser-icon [type]="node.type"></file-browser-icon>
-                        {{ node.name }}
-                    </ion-row>
+                        <ion-row class="list-item">   
+                            <file-browser-icon [type]="node.type"></file-browser-icon>
+                            {{ node.name }}
+                        </ion-row>
+                    </div>
                 </ng-container>
             </ng-container>
         </ion-grid>

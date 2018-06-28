@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavController, LoadingController, ActionSheetController } from 'ionic-angular';
 import { Observable } from 'rxjs';
 import { Select } from '@ngxs/store';
-import { FileBrowserList } from '../../services/file-browser-list.service';
+import { FileBrowser } from '../../services/file-browser.service';
 import { FileBrowserState } from '../../states/file-browser.state';
 
 @Component({
@@ -14,7 +14,7 @@ import { FileBrowserState } from '../../states/file-browser.state';
     @Select(FileBrowserState.getSidebar) sidebar$: Observable<Boolean>;
 
     constructor(public navCtrl: NavController, public loadingCtrl: LoadingController,
-                public actionSheetCtrl: ActionSheetController, public fileBrowserList: FileBrowserList) {
+                public actionSheetCtrl: ActionSheetController, public fileBrowser: FileBrowser) {
     }
   
     ngOnInit() {

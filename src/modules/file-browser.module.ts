@@ -6,7 +6,7 @@ import { NgModule, ModuleWithProviders, ErrorHandler } from '@angular/core';
 import { NgxsModule } from '@ngxs/store';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 // Service imports
-import { FileBrowserList } from '../services/file-browser-list.service';
+import { FileBrowser } from '../services/file-browser.service';
 import { NodeSortingService } from '../services/node-sorting.service';
 // State imports
 import { FileBrowserState } from '../states/file-browser.state';
@@ -66,7 +66,7 @@ export class FileBrowserModule {
     static forRoot(): ModuleWithProviders {
         return {
             ngModule: FileBrowserModule,
-            providers: [FileBrowserList, NodeSortingService,
+            providers: [FileBrowser, NodeSortingService,
                 { provide: ErrorHandler, useClass: IonicErrorHandler }]
         };
     }

@@ -12,7 +12,37 @@ $ npm install ionic-json-file-browser
 ```
 
 ## How to use this API
-### Work in progress
+You can import the library in an Ionic application:
+
+```typescript
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { AppComponent } from './app.component';
+
+// Import library
+import { FileBrowserModule } from 'ionic-json-file-browser';
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+
+    // Specify library as an import
+    FileBrowserModule.forRoot()
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule {}
+```
+
+You can use the component in an Ionic application:
+```html
+<file-browser></file-browser>
+```
 
 ## To-do 📋
 General Functionality 

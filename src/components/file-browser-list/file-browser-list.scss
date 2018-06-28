@@ -3,14 +3,20 @@
     height: 100%;
 }
 
-.grid-item {
+.list-row {
     cursor: pointer;
+    align-items: center;
     border-bottom: 1px solid #f2f2f2;
     height: 40px;
-    align-items: center;
 }
 
-.grid-item:hover {
+.list-item {
+    height: 40px;
+    align-items: center;
+    padding: 0px 10px 0px 10px;
+}
+
+.list-item:hover {
     border-radius: 5px;
     background: rgb(217, 217, 217);
 }

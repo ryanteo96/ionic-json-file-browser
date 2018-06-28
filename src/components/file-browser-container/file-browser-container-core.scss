@@ -15,7 +15,6 @@
 
 .main {
     display: grid;
-    padding: 0px 0px 15px 15px;
     grid-template-rows: 40px 40px auto;
     border-left: 1px solid #f2f2f2;
     overflow-y: hidden;
@@ -27,10 +26,10 @@ file-browser-list {
 
 .sidebar {
     display: grid;
-    padding: 0px 0px 5px 5px;
     overflow: hidden;
 }
 
 file-browser-tree {
+    padding: 5px;
     overflow: auto;
 }

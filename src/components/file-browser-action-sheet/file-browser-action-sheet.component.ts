@@ -24,9 +24,45 @@ export class FileBrowserActionSheetComponent implements OnInit {
                 title: 'Options',
                 buttons: [
                     {
+                        icon: 'open',
+                        text: 'Open',
+                        handler: () => {
+                            console.log('Open Folder Triggered.');
+                        }
+                    },
+                    {
+                        icon: 'add',
                         text: 'New Folder',
                         handler: () => {
                             console.log('New Folder Triggered.');
+                        }
+                    },
+                    {
+                        icon: 'add',
+                        text: 'New File',
+                        handler: () => {
+                            console.log('New File Triggered.');
+                        }
+                    },
+                    {
+                        icon: 'create',
+                        text: 'Rename',
+                        handler: () => {
+                            console.log('Rename Folder Triggered.');
+                        }
+                    },
+                    {
+                        icon: 'trash',
+                        text: 'Delete',
+                        handler: () => {
+                            console.log('Delete Folder Triggered.');
+                        }
+                    },
+                    {
+                        icon: 'information',
+                        text: 'Properties',
+                        handler: () => {
+                            console.log('Folder Properties Triggered.');
                         }
                     },
                 ]
@@ -40,9 +76,24 @@ export class FileBrowserActionSheetComponent implements OnInit {
                 title: 'Options',
                 buttons: [
                     {
+                        icon: 'create',
                         text: 'Rename',
                         handler: () => {
-                            console.log('Rename Document Triggered.');
+                            console.log('Rename Folder Triggered.');
+                        }
+                    },
+                    {
+                        icon: 'trash',
+                        text: 'Delete',
+                        handler: () => {
+                            console.log('Delete Folder Triggered.');
+                        }
+                    },
+                    {
+                        icon: 'information',
+                        text: 'Properties',
+                        handler: () => {
+                            console.log('Folder Properties Triggered.');
                         }
                     },
                 ]
