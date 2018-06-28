@@ -11,37 +11,38 @@ An Ionic module to render a file browser based on a JSON file.
 $ npm install ionic-json-file-browser
 ```
 
-## How to use this API
-You can import the library in an Ionic application:
+## Usage
+Importing Module:
 
 ```typescript
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
-
-// Import library
 import { FileBrowserModule } from 'ionic-json-file-browser';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-
-    // Specify library as an import
-    FileBrowserModule.forRoot()
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    imports: [
+        ...
+        FileBrowserModule
+        ...
+    ]
 })
-export class AppModule {}
 ```
 
-You can use the component in an Ionic application:
+Using in template:
 ```html
 <file-browser></file-browser>
+```
+
+## API
+
+```typescript
+import { FileBrowser } from 'ionic-json-file-browser';
+
+export class HomePage implements OnInit{
+    constructor(public fileBrowser: FileBrowser) {}
+
+    ngOnInit() {
+        this.fileBrowser.generateFileBrowser(node, entity, 0);
+    }
+}
 ```
 
 ## To-do 📋
