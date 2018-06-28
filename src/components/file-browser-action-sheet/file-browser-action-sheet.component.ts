@@ -1,15 +1,55 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActionSheetController } from 'ionic-angular';
+import { FileBrowserContainerCoreComponent } from '../file-browser-container/file-browser-container-core.component';
 
 @Component({
     selector: 'file-browser-action-sheet',
     templateUrl: 'file-browser-action-sheet.html',
-    styleUrls: ['file-browser-action-sheet.scss']
+    styleUrls: ['file-browser-action-sheet.scss'],
+    providers: [FileBrowserContainerCoreComponent]
 })
-export class FileBrowserActionSheetComponent implements OnInit {
-    constructor(private actionSheetCtrl: ActionSheetController) {}
+export class FileBrowserActionSheetComponent {
+    constructor(public actionSheetCtrl: ActionSheetController, public fileBrowserContainerCore: FileBrowserContainerCoreComponent) {}
 
-    ngOnInit() {}
+    openBtn = {
+        icon: 'open',
+        text: 'Open',
+        handler: () => {
+            console.log('Open Folder Triggered.');
+        }
+    }
+
+    newFolderBtn = {
+        icon: 'add',
+        text: 'New Folder',
+        handler: () => this.fileBrowserContainerCore.presentAlert('new-folder'),
+    }
+
+    newFileBtn = {
+        icon: 'add',
+        text: 'New File',
+        handler: () => this.fileBrowserContainerCore.presentAlert('new-file'),
+    }
+
+    renameBtn = {
+        icon: 'create',
+        text: 'Rename',
+        handler: () => this.fileBrowserContainerCore.presentAlert('rename'),
+    }
+
+    deleteBtn = {
+        icon: 'trash',
+        text: 'Delete',
+        handler: () => this.fileBrowserContainerCore.presentAlert('delete'),
+    }
+
+    propertiesBtn = {
+        icon: 'information',
+        text: 'Properties',
+        handler: () => {
+            console.log('Folder Properties Triggered.');
+        }
+    }
 
     presentActionSheet(type) {
         let actionSheet = this.actionSheetCtrl.create(this.getActionSheetOptions(type));
@@ -19,87 +59,45 @@ export class FileBrowserActionSheetComponent implements OnInit {
     getActionSheetOptions(type) {
         let actionSheet;
 
-        if (type === 'Folder') {
-            actionSheet = {
-                title: 'Options',
-                buttons: [
-                    {
-                        icon: 'open',
-                        text: 'Open',
-                        handler: () => {
-                            console.log('Open Folder Triggered.');
-                        }
-                    },
-                    {
-                        icon: 'add',
-                        text: 'New Folder',
-                        handler: () => {
-                            console.log('New Folder Triggered.');
-                        }
-                    },
-                    {
-                        icon: 'add',
-                        text: 'New File',
-                        handler: () => {
-                            console.log('New File Triggered.');
-                        }
-                    },
-                    {
-                        icon: 'create',
-                        text: 'Rename',
-                        handler: () => {
-                            console.log('Rename Folder Triggered.');
-                        }
-                    },
-                    {
-                        icon: 'trash',
-                        text: 'Delete',
-                        handler: () => {
-                            console.log('Delete Folder Triggered.');
-                        }
-                    },
-                    {
-                        icon: 'information',
-                        text: 'Properties',
-                        handler: () => {
-                            console.log('Folder Properties Triggered.');
-                        }
-                    },
-                ]
+        switch(type) {
+            case 'Folder': {
+                actionSheet = {
+                    title: 'Options',
+                    buttons: [
+                        this.openBtn,
+                        this.newFolderBtn,
+                        this.newFileBtn,
+                        this.renameBtn,
+                        this.deleteBtn,
+                        this.propertiesBtn,
+                    ]
+                }
+                break;
             }
-            
-            return actionSheet;
+            case 'Document': {
+                actionSheet = {
+                    title: 'Options',
+                    buttons: [
+                        this.renameBtn,
+                        this.deleteBtn,
+                        this.propertiesBtn,
+                    ]
+                }
+                break;
+            }
+            default: {
+                actionSheet = {
+                    title: 'Options',
+                    buttons: [
+                        this.renameBtn,
+                        this.deleteBtn,
+                        this.propertiesBtn,
+                    ]
+                }
+                break;
+            }
         }
 
-        if (type === 'Document') {
-            actionSheet = {
-                title: 'Options',
-                buttons: [
-                    {
-                        icon: 'create',
-                        text: 'Rename',
-                        handler: () => {
-                            console.log('Rename Folder Triggered.');
-                        }
-                    },
-                    {
-                        icon: 'trash',
-                        text: 'Delete',
-                        handler: () => {
-                            console.log('Delete Folder Triggered.');
-                        }
-                    },
-                    {
-                        icon: 'information',
-                        text: 'Properties',
-                        handler: () => {
-                            console.log('Folder Properties Triggered.');
-                        }
-                    },
-                ]
-            }
-
-            return actionSheet;
-        }
+        return actionSheet;
     }
 }

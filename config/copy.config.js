@@ -10,6 +10,7 @@ module.exports = {
         "{{SRC}}/components/file-browser-tree/file-browser-tree.scss",
         "{{SRC}}/components/file-browser-icon/file-browser-icon.scss",
         "{{SRC}}/components/file-browser-action-sheet/file-browser-action-sheet.scss",
+        "{{SRC}}/components/file-browser-alert/file-browser-alert.scss",
         ],
         dest: "{{WWW}}"
     }

@@ -4,17 +4,20 @@ import { Observable } from 'rxjs';
 import { Select } from '@ngxs/store';
 import { FileBrowser } from '../../services/file-browser.service';
 import { FileBrowserState } from '../../states/file-browser.state';
+import { FileBrowserAlertComponent } from '../file-browser-alert/file-browser-alert.component';
 
 @Component({
     selector: 'file-browser-core',
     templateUrl: 'file-browser-container-core.html',
     styleUrls: ['file-browser-container-core.scss'],
+    providers: [FileBrowserAlertComponent]
   })
   export class FileBrowserContainerCoreComponent implements OnInit {
     @Select(FileBrowserState.getSidebar) sidebar$: Observable<Boolean>;
 
     constructor(public navCtrl: NavController, public loadingCtrl: LoadingController,
-                public actionSheetCtrl: ActionSheetController, public fileBrowser: FileBrowser) {
+                public actionSheetCtrl: ActionSheetController, public fileBrowser: FileBrowser,
+                public alertComponent: FileBrowserAlertComponent) {
     }
   
     ngOnInit() {
@@ -27,5 +30,9 @@ import { FileBrowserState } from '../../states/file-browser.state';
           duration: 3000
       });
       loader.present();
+    }
+
+    presentAlert(type) {
+      this.alertComponent.presentAlert(type);
     }
   }
