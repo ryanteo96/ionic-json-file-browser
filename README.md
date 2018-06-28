@@ -44,25 +44,3 @@ export class HomePage implements OnInit{
     }
 }
 ```
-
-## To-do 📋
-General Functionality 
-- [ ] JSON importing (local/web)
-- [ ] Unit Testing.
-
-Desktop 🖥
-- [x] List View.
-- [x] History View.
-- [x] File Navigation.
-- [x] Tree View.
-- [x] List Sorting.
-- [x] File Icons.
-- [x] Context Menu.
-
-Mobile 📱
-- [x] List View.
-- [x] History View.
-- [x] File Navigation.
-- [x] List Sorting.
-- [x] File Icons.
-- [x] Context Menu.
