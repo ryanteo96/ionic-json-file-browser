@@ -33,6 +33,6 @@ export class FileBrowserTreeComponent implements OnInit {
     }
 
     showActionSheet(node) {
-        this.fileBrowserActionSheet.presentActionSheet(node.type);
+        this.fileBrowserActionSheet.presentActionSheet(node);
     }
 }

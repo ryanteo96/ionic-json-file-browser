@@ -53,3 +53,9 @@ export class ShowTree {
 
     constructor() {};
 }
+
+export class Open {
+    static readonly type = '[Node] Open';
+
+    constructor(public node: number) {}
+}

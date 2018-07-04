@@ -13,3 +13,5 @@ export * from './components/file-browser-container/file-browser-container.compon
 // export * from './services/list-sorting.service';
 export * from './services/file-browser.service';
 export * from './services/file-browser-action-sheet.service';
+
+export { Open } from './states/file-browser.actions';

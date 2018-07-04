@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngxs/store';
 import { ActionSheetController } from 'ionic-angular';
 import { FileBrowserContainerCoreComponent } from '../file-browser-container/file-browser-container-core.component';
+import { Open } from '../../states/file-browser.actions';
 
 @Component({
     selector: 'file-browser-action-sheet',
@@ -9,14 +11,17 @@ import { FileBrowserContainerCoreComponent } from '../file-browser-container/fil
     providers: [FileBrowserContainerCoreComponent]
 })
 export class FileBrowserActionSheetComponent {
-    constructor(public actionSheetCtrl: ActionSheetController, public fileBrowserContainerCore: FileBrowserContainerCoreComponent) {}
+    constructor(public store: Store, public actionSheetCtrl: ActionSheetController, 
+                public fileBrowserContainerCore: FileBrowserContainerCoreComponent) {}
+
+    node: number;
 
     openBtn = {
         icon: 'open',
         text: 'Open',
         handler: () => {
-            console.log('Open Folder Triggered.');
-        }
+            this.store.dispatch(new Open(this.node));
+        },
     }
 
     newFolderBtn = {
@@ -51,8 +56,9 @@ export class FileBrowserActionSheetComponent {
         }
     }
 
-    presentActionSheet(type) {
-        let actionSheet = this.actionSheetCtrl.create(this.getActionSheetOptions(type));
+    presentActionSheet(node) {
+        let actionSheet = this.actionSheetCtrl.create(this.getActionSheetOptions(node.type));
+        this.node = node.id;
         actionSheet.present();
     }
 

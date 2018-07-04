@@ -36,7 +36,7 @@ Using in template:
 ```typescript
 import { FileBrowser } from 'ionic-json-file-browser';
 
-export class HomePage implements OnInit{
+export class HomePage implements OnInit {
     constructor(public fileBrowser: FileBrowser) {}
 
     ngOnInit() {
