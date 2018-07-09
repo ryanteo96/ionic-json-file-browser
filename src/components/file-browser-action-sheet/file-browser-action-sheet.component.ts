@@ -48,13 +48,11 @@ export class FileBrowserActionSheetComponent {
         handler: () => this.fileBrowserContainerCore.presentAlert('delete'),
     }
 
-    propertiesBtn = {
-        icon: 'information',
-        text: 'Properties',
-        handler: () => {
-            console.log('Folder Properties Triggered.');
-        }
-    }
+    // propertiesBtn = {
+    //     icon: 'information',
+    //     text: 'Properties',
+    //     handler: () => this.fileBrowserContainerCore.presentModal(),
+    // }
 
     presentActionSheet(node) {
         let actionSheet = this.actionSheetCtrl.create(this.getActionSheetOptions(node.type));
@@ -75,7 +73,7 @@ export class FileBrowserActionSheetComponent {
                         this.newFileBtn,
                         this.renameBtn,
                         this.deleteBtn,
-                        this.propertiesBtn,
+                        // this.propertiesBtn,
                     ]
                 }
                 break;
@@ -86,7 +84,7 @@ export class FileBrowserActionSheetComponent {
                     buttons: [
                         this.renameBtn,
                         this.deleteBtn,
-                        this.propertiesBtn,
+                        // this.propertiesBtn,
                     ]
                 }
                 break;
@@ -97,7 +95,7 @@ export class FileBrowserActionSheetComponent {
                     buttons: [
                         this.renameBtn,
                         this.deleteBtn,
-                        this.propertiesBtn,
+                        // this.propertiesBtn,
                     ]
                 }
                 break;

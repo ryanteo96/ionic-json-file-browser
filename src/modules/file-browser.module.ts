@@ -22,6 +22,8 @@ import { FileBrowserTreeComponent } from '../components/file-browser-tree/file-b
 import { FileBrowserIconComponent } from '../components/file-browser-icon/file-browser-icon.component';
 import { FileBrowserActionSheetComponent } from '../components/file-browser-action-sheet/file-browser-action-sheet.component';
 import { FileBrowserAlertComponent } from '../components/file-browser-alert/file-browser-alert.component';
+import { FileBrowserModalComponent } from '../components/file-browser-modal/file-browser-modal.component';
+import { FileBrowserPropertiesComponent } from '../components/file-browser-properties/file-browser-properties.component';
 
 @NgModule({
     imports: [
@@ -45,6 +47,8 @@ import { FileBrowserAlertComponent } from '../components/file-browser-alert/file
         FileBrowserIconComponent,
         FileBrowserActionSheetComponent,
         FileBrowserAlertComponent,
+        FileBrowserModalComponent,
+        FileBrowserPropertiesComponent,
     ],
     exports: [
         FileBrowserContainerComponent,
@@ -58,11 +62,14 @@ import { FileBrowserAlertComponent } from '../components/file-browser-alert/file
         FileBrowserIconComponent,
         FileBrowserActionSheetComponent,
         FileBrowserAlertComponent,
+        FileBrowserModalComponent,
+        FileBrowserPropertiesComponent,
     ],
     entryComponents: [
         FileBrowserContainerComponent,
         FileBrowserContainerCoreComponent,
         FileBrowserContainerMobileComponent,
+        FileBrowserPropertiesComponent
     ],
 })
 export class FileBrowserModule {

@@ -20,13 +20,13 @@
     overflow-y: hidden;
 }
 
-file-browser-list {
-    overflow-y: auto;
-}
-
 .sidebar {
     display: grid;
     overflow: hidden;
+}
+
+file-browser-list {
+    overflow-y: auto;
 }
 
 file-browser-tree {

@@ -1,6 +1,6 @@
 <div class="file-browser-tree">
-    <ion-list no-lines>
-        <ion-grid>
+    <ion-list class="file-browser-tree-list" no-lines>
+        <ion-grid class="file-browser-tree-grid">
             <ng-container *ngIf="nodes$">
                 <ng-container *ngFor="let node of nodes$ | async">
                     <ng-container *ngIf="node.parent < 0">
