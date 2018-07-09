@@ -1,16 +1,18 @@
-<div class="file-browser-icon">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+<div>
     <ng-container [ngSwitch]="type">
-        <ng-container *ngSwitchCase="'Folder'">
-            <ion-icon *ngIf="!state" class="file-icon" name="md-folder"></ion-icon>
-            <ion-icon *ngIf="state" class="file-icon" name="md-folder-open"></ion-icon>
+        <ng-container *ngSwitchCase="'folder'">
+            <i *ngIf="!state" class="fas fa-folder file-icon"></i>
+            <i *ngIf="state" class="fas fa-folder-open file-icon"></i>
         </ng-container>
-        <ng-container *ngSwitchCase="'Document'">
-            <ion-icon class="file-icon" name="md-document"></ion-icon>
-        </ng-container>
-        
-        <ng-container *ngSwitchDefault>
-            <!-- <ion-icon *ngIf="!state" class="file-icon" name="md-folder"></ion-icon>
-            <ion-icon *ngIf="state" class="file-icon" name="md-folder-open"></ion-icon> -->
-        </ng-container>
+       
+        <i *ngSwitchCase="'document'" class="fas fa-file file-icon"></i>
+        <i *ngSwitchCase="'pdf'" class="fas fa-file-pdf file-icon"></i>
+        <i *ngSwitchCase="'word'" class="fas fa-file-word file-icon"></i>
+        <i *ngSwitchCase="'excel'" class="fas fa-file-excel file-icon"></i>
+        <i *ngSwitchCase="'powerpoint'" class="fas fa-file-powerpoint file-icon"></i>
+        <i *ngSwitchCase="'image'" class="fas fa-image file-icon"></i>
+        <i *ngSwitchDefault class="fas fa-file file-icon"></i>
     </ng-container>
 </div>
