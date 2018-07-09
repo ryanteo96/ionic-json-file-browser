@@ -1,11 +1,10 @@
 <div class="file-browser-header">
-    <ion-row class="grid-header">
-        <ion-col class="grid-column">
+    <ion-row class="file-browser-header-row">
+        <ion-col class="file-browser-header-name-col" align-center>
         Name&nbsp;&nbsp;
         <ion-icon class="sort-icon" *ngIf="(sort$ | async) === 'asc'" name="md-arrow-down" (click)="toggleSort('desc')"></ion-icon>
         <ion-icon class="sort-icon" *ngIf="(sort$ | async) === 'desc'" name="md-arrow-up" (click)="toggleSort('asc')"></ion-icon>
         </ion-col>
+        <ion-icon class="tree-icon" name="md-list" (click)="showTree()"></ion-icon>
     </ion-row>
 </div>
-
-<!-- (click)="sortToggle()" -->

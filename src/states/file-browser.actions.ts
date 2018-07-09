@@ -47,3 +47,15 @@ export class SortNodes {
 
     constructor(public sort: string) {}
 }
+
+export class ShowTree {
+    static readonly type = '[Browser] Show Tree';
+
+    constructor() {};
+}
+
+export class Open {
+    static readonly type = '[Node] Open';
+
+    constructor(public node: number) {}
+}

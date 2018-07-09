@@ -1,16 +1,17 @@
 <div class="file-browser-list">
     <ion-list>
         <ion-grid class="table-grid-core">
-            <ng-container *ngIf="entities$">
-                <ng-container *ngFor="let entity of entities$ | async">
-                    <ion-row class="grid-item" (click)="showNode(entity)" oncontextmenu="return false">
-                        <file-browser-icon [type]="entity.type"></file-browser-icon>
-                        {{ entity.name }}
-                    </ion-row>
+            <ng-container *ngIf="nodes$">
+                <ng-container *ngFor="let node of nodes$ | async">
+                    <div class="list-row" (click)="showNode(node)" oncontextmenu="return false"
+                        (contextmenu)="showActionSheet(node)">
+                        <ion-row class="list-item">   
+                            <file-browser-icon [type]="node.type"></file-browser-icon>
+                            {{ node.name }}
+                        </ion-row>
+                    </div>
                 </ng-container>
             </ng-container>
         </ion-grid>
     </ion-list>
 </div>
-
-<!-- (contextmenu)="presentActionSheet()" -->

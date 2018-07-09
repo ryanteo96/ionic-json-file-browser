@@ -3,7 +3,7 @@ import { NavController } from 'ionic-angular';
 import * as node from './node.json';
 import * as entity from './entity.json';
 
-import { FileBrowserList } from '../../services/file-browser-list.service';
+import { FileBrowser } from '../../services/file-browser.service';
 
 @Component({
   selector: 'testing',
@@ -11,9 +11,10 @@ import { FileBrowserList } from '../../services/file-browser-list.service';
 })
 export class TestPage implements OnInit {
 
-  constructor(public navCtrl: NavController, private fileBrowserList: FileBrowserList) {}
+  constructor(public navCtrl: NavController, private fileBrowser: FileBrowser) {}
 
   ngOnInit() {
-    this.fileBrowserList.generateFileBrowser(<any>node, <any>entity, 0);
+    // console.log(JSON.stringify(node));
+    this.fileBrowser.generateFileBrowser(<any>node, <any>entity, 0);
   }
 }

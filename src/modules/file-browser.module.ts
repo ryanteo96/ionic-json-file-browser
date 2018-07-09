@@ -1,10 +1,12 @@
 // Module imports
 import { IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, ModuleWithProviders, ErrorHandler } from '@angular/core';
 import { NgxsModule } from '@ngxs/store';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 // Service imports
-import { FileBrowserList } from '../services/file-browser-list.service';
+import { FileBrowser } from '../services/file-browser.service';
 import { NodeSortingService } from '../services/node-sorting.service';
 // State imports
 import { FileBrowserState } from '../states/file-browser.state';
@@ -18,10 +20,16 @@ import { FileBrowserListComponent } from '../components/file-browser-list/file-b
 import { FileBrowserListMobileComponent } from '../components/file-browser-list/file-browser-list-mobile.component';
 import { FileBrowserTreeComponent } from '../components/file-browser-tree/file-browser-tree.component';
 import { FileBrowserIconComponent } from '../components/file-browser-icon/file-browser-icon.component';
+import { FileBrowserActionSheetComponent } from '../components/file-browser-action-sheet/file-browser-action-sheet.component';
+import { FileBrowserAlertComponent } from '../components/file-browser-alert/file-browser-alert.component';
+import { FileBrowserModalComponent } from '../components/file-browser-modal/file-browser-modal.component';
+import { FileBrowserPropertiesComponent } from '../components/file-browser-properties/file-browser-properties.component';
 
 @NgModule({
     imports: [
         IonicModule,
+        BrowserModule,
+        BrowserAnimationsModule,
         NgxsModule.forRoot([
             FileBrowserState,
         ]),
@@ -37,6 +45,10 @@ import { FileBrowserIconComponent } from '../components/file-browser-icon/file-b
         FileBrowserListMobileComponent,
         FileBrowserTreeComponent,
         FileBrowserIconComponent,
+        FileBrowserActionSheetComponent,
+        FileBrowserAlertComponent,
+        FileBrowserModalComponent,
+        FileBrowserPropertiesComponent,
     ],
     exports: [
         FileBrowserContainerComponent,
@@ -48,18 +60,23 @@ import { FileBrowserIconComponent } from '../components/file-browser-icon/file-b
         FileBrowserListMobileComponent,
         FileBrowserTreeComponent,
         FileBrowserIconComponent,
+        FileBrowserActionSheetComponent,
+        FileBrowserAlertComponent,
+        FileBrowserModalComponent,
+        FileBrowserPropertiesComponent,
     ],
     entryComponents: [
         FileBrowserContainerComponent,
         FileBrowserContainerCoreComponent,
         FileBrowserContainerMobileComponent,
+        FileBrowserPropertiesComponent
     ],
 })
 export class FileBrowserModule {
     static forRoot(): ModuleWithProviders {
         return {
             ngModule: FileBrowserModule,
-            providers: [FileBrowserList, NodeSortingService,
+            providers: [FileBrowser, NodeSortingService,
                 { provide: ErrorHandler, useClass: IonicErrorHandler }]
         };
     }

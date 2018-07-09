@@ -1,13 +1,13 @@
 .file-browser-header {
     height: 40px;
-    align-items: center;
-    padding-right: 15px;
+    border-bottom: 1px solid #f2f2f2;
 }
 
-.grid-header {
+.file-browser-header-row {
     border-bottom: 1px solid #f2f2f2;
     height: 40px;
     align-items: center;
+    padding: 5px 15px 5px 10px;
 }
 
 .grid-column {
@@ -15,5 +15,10 @@
 }
 
 .sort-icon {
+    cursor: pointer;
+}
+
+.tree-icon {
+    text-align: right !important;
     cursor: pointer;
 }

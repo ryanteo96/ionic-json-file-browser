@@ -1,10 +1,20 @@
 <div class="file-browser-container">
-    <div class="sidebar">
-        <file-browser-tree></file-browser-tree>
+    <div class="file-browser-container-sidebar" *ngIf="(sidebar$ | async)">
+        <div class="sidebar">
+            <file-browser-tree></file-browser-tree>
+        </div>
+        <div class="main">
+            <file-browser-history></file-browser-history>
+            <file-browser-header></file-browser-header>
+            <file-browser-list></file-browser-list>
+        </div>
     </div>
-    <div class="main">
-        <file-browser-history></file-browser-history>
-        <file-browser-header></file-browser-header>
-        <file-browser-list></file-browser-list>
+    
+    <div class="file-browser-container-no-sidebar" *ngIf="!(sidebar$ | async)">
+        <div class="main">
+            <file-browser-history></file-browser-history>
+            <file-browser-header></file-browser-header>
+            <file-browser-list></file-browser-list>
+        </div>
     </div>
 </div>

@@ -1,18 +1,17 @@
 .file-browser-history {
     height: 40px;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.file-browser-history-row {
     align-items: center;
-    padding-right: 15px;
+    height: 40px;
+    padding: 5px 15px 5px 10px;
     font-size: 20px;
 }
 
 .icon {
     font-size: 15px;
-}
-
-.grid-header {
-    border-bottom: 1px solid #f2f2f2;
-    height: 40px;
-    align-items: center;
 }
 
 .history-item {

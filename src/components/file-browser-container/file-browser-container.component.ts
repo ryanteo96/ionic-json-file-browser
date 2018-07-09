@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NavController, Platform } from 'ionic-angular';
 import { LoadingController, ActionSheetController } from 'ionic-angular';
-import { FileBrowserList } from '../../services/file-browser-list.service';
+import { FileBrowser } from '../../services/file-browser.service';
 import { FileBrowserContainerCoreComponent } from '../file-browser-container/file-browser-container-core.component';
 import { FileBrowserContainerMobileComponent } from '../file-browser-container/file-browser-container-mobile.component';
 
@@ -16,7 +16,7 @@ export class FileBrowserContainerComponent implements OnInit {
 
     constructor(public loadingCtrl: LoadingController,
                 public actionSheetCtrl: ActionSheetController, 
-                public fileBrowserList: FileBrowserList,
+                public fileBrowser: FileBrowser,
                 public plt: Platform) {
                     // console.log(this.plt.platforms());
 
