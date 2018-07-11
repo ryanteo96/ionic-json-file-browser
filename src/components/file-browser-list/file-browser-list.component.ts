@@ -27,6 +27,7 @@ export class FileBrowserListComponent implements OnInit {
     }
 
     showActionSheet(node) {
+        event.stopPropagation();
         this.fileBrowserActionSheet.presentActionSheet(node);
     }
 }

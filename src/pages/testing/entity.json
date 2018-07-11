@@ -62,7 +62,7 @@
   {
     "id": 12,
     "name": "Lorena",
-    "type": "document"
+    "type": "audio"
   },
   {
     "id": 13,
@@ -72,7 +72,7 @@
   {
     "id": 14,
     "name": "Livingston",
-    "type": "document"
+    "type": "archive"
   },
   {
     "id": 15,
@@ -92,7 +92,7 @@
   {
     "id": 18,
     "name": "Christian",
-    "type": "document"
+    "type": "archive"
   },
   {
     "id": 19,
@@ -107,7 +107,7 @@
   {
     "id": 21,
     "name": "Foley",
-    "type": "document"
+    "type": "code"
   },
   {
     "id": 22,
@@ -117,12 +117,12 @@
   {
     "id": 23,
     "name": "Imelda",
-    "type": "document"
+    "type": "image"
   },
   {
     "id": 24,
     "name": "Kay",
-    "type": "document"
+    "type": "video"
   },
   {
     "id": 25,
@@ -137,16 +137,16 @@
   {
     "id": 27,
     "name": "Glass",
-    "type": "document"
+    "type": "pdf"
   },
   {
     "id": 28,
     "name": "Garza",
-    "type": "document"
+    "type": "powerpoint"
   },
   {
     "id": 29,
     "name": "Frederick",
-    "type": "image"
+    "type": "excel"
   }
 ]

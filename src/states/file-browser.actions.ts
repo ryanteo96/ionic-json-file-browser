@@ -59,3 +59,9 @@ export class Open {
 
     constructor(public node: number) {}
 }
+
+export class SetOS {
+    static readonly type = '[OS] Set';
+
+    constructor(public os: string) {};
+}

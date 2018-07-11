@@ -5,6 +5,6 @@
         <ion-icon class="sort-icon" *ngIf="(sort$ | async) === 'asc'" name="md-arrow-down" (click)="toggleSort('desc')"></ion-icon>
         <ion-icon class="sort-icon" *ngIf="(sort$ | async) === 'desc'" name="md-arrow-up" (click)="toggleSort('asc')"></ion-icon>
         </ion-col>
-        <ion-icon class="tree-icon" name="md-list" (click)="showTree()"></ion-icon>
+        <ion-icon *ngIf="(os$ | async) === 'core'" class="tree-icon" name="md-list" (click)="showTree()"></ion-icon>
     </ion-row>
 </div>

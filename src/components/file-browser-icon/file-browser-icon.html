@@ -2,17 +2,25 @@
 
 <div>
     <ng-container [ngSwitch]="type">
+        <!-- General file types -->
         <ng-container *ngSwitchCase="'folder'">
             <i *ngIf="!state" class="fas fa-folder file-icon"></i>
             <i *ngIf="state" class="fas fa-folder-open file-icon"></i>
         </ng-container>
-       
-        <i *ngSwitchCase="'document'" class="fas fa-file file-icon"></i>
+        <i *ngSwitchCase="'document'" class="fas fa-file-alt file-icon"></i>
+        <i *ngSwitchCase="'archive'" class="fas fa-file-archive file-icon"></i>
+        <!-- Office file types -->
         <i *ngSwitchCase="'pdf'" class="fas fa-file-pdf file-icon"></i>
         <i *ngSwitchCase="'word'" class="fas fa-file-word file-icon"></i>
         <i *ngSwitchCase="'excel'" class="fas fa-file-excel file-icon"></i>
         <i *ngSwitchCase="'powerpoint'" class="fas fa-file-powerpoint file-icon"></i>
-        <i *ngSwitchCase="'image'" class="fas fa-image file-icon"></i>
+        <!-- Media file types -->
+        <i *ngSwitchCase="'image'" class="fas fa-file-image file-icon"></i>
+        <i *ngSwitchCase="'video'" class="fas fa-file-video file-icon"></i>
+        <i *ngSwitchCase="'audio'" class="fas fa-file-audio file-icon"></i>
+
+        <i *ngSwitchCase="'code'" class="fas fa-file-code file-icon"></i>
+        <!-- Default -->
         <i *ngSwitchDefault class="fas fa-file file-icon"></i>
     </ng-container>
 </div>

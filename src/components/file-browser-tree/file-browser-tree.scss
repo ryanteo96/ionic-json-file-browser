@@ -6,11 +6,12 @@
     cursor: pointer;
     font-size: 15px;
     align-items: center;
+    transition: 0.25s;
 }
 
 .tree-item:hover {
     border-radius: 5px;
-    background: rgb(217, 217, 217);
+    background: rgb(233, 240, 253);
 }
 
 @for $i from 1 through 30 {

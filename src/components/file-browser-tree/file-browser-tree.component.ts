@@ -28,7 +28,7 @@ export class FileBrowserTreeComponent implements OnInit {
     }
 
     showNode(node) {
-        if (node.type === 'Folder')
+        if (node.type === 'folder')
             this.store.dispatch(new GetNode(node.id));
     }
 

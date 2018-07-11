@@ -13,6 +13,7 @@ import {
     ToggleFolder,
     SortNodes,
     ShowTree,
+    SetOS,
 } from './file-browser.actions';
 import { NodeSortingService } from '../services/node-sorting.service';
 
@@ -28,6 +29,7 @@ export interface FileBrowserStateModel {
     history: NodeEntity[];
     sort: String;
     sidebar: Boolean;
+    os: String;
 }
 
 @State<FileBrowserStateModel>({
@@ -44,6 +46,7 @@ export interface FileBrowserStateModel {
         history: [],
         sort: 'asc',
         sidebar: true,
+        os: '',
     },
 })
 
@@ -78,6 +81,11 @@ export class FileBrowserState {
     @Selector()
     static getSidebar(state: FileBrowserStateModel): Boolean {
         return state.sidebar;
+    }
+
+    @Selector()
+    static getOS(state: FileBrowserStateModel): String {
+        return state.os;
     }
 
     @Action(GenerateFileBrowser)
@@ -234,5 +242,12 @@ export class FileBrowserState {
         patchState({
             sidebar: !state.sidebar,
         });
+    }
+
+    @Action(SetOS)
+    setOS({ patchState }: StateContext<FileBrowserStateModel>, { os }: SetOS) {
+        patchState({
+            os: os,
+        })
     }
 }

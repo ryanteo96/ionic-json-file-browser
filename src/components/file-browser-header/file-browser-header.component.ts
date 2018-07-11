@@ -12,6 +12,8 @@ import { FileBrowser } from '../../services/file-browser.service';
 export class FileBrowserHeaderComponent implements OnInit {
     @Select(FileBrowserState.getSort) sort$: Observable<String>;
 
+    @Select(FileBrowserState.getOS) os$: Observable<String>;
+
     constructor(private fileBrowser: FileBrowser) {}
 
     ngOnInit() {}
