@@ -33,8 +33,8 @@ import { FileBrowserModalComponent } from '../file-browser-modal/file-browser-mo
       loader.present();
     }
 
-    presentAlert(type) {
-      this.alertComponent.presentAlert(type);
+    presentAlert(type, node) {
+      this.alertComponent.presentAlert(type, node);
     }
 
     presentModal() {

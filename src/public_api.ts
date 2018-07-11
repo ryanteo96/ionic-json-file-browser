@@ -1,6 +1,6 @@
-export { FileBrowserModule } from './modules/file-browser.module';
+export { FileBrowserModule } from "./modules/file-browser.module";
 
-export * from './components/file-browser-container/file-browser-container.component';
+export * from "./components/file-browser-container/file-browser-container.component";
 // export * from './components/file-browser-container/file-browser-container-core.component';
 // export * from './components/file-browser-container/file-browser-container-mobile.component';
 // export * from './components/file-browser-history.component';
@@ -11,7 +11,7 @@ export * from './components/file-browser-container/file-browser-container.compon
 // export * from './components/sidebar-card.component';
 
 // export * from './services/list-sorting.service';
-export * from './services/file-browser.service';
-export * from './services/file-browser-action-sheet.service';
+export * from "./services/file-browser.service";
+export * from "./services/file-browser-action-sheet.service";
 
-export { Open } from './states/file-browser.actions';
+export { Open, NewFolder, Rename, Delete } from "./states/file-browser.actions";

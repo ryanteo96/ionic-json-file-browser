@@ -47,17 +47,17 @@
   {
     "id": 9,
     "name": "Test",
-    "type": "document"
+    "type": "file"
   },
   {
     "id": 10,
     "name": "Bettie",
-    "type": "document"
+    "type": "word"
   },
   {
     "id": 11,
     "name": "Bauer",
-    "type": "document"
+    "type": "file"
   },
   {
     "id": 12,
@@ -67,7 +67,7 @@
   {
     "id": 13,
     "name": "Marva",
-    "type": "document"
+    "type": "file"
   },
   {
     "id": 14,
@@ -77,32 +77,32 @@
   {
     "id": 15,
     "name": "Phoebe",
-    "type": "document"
+    "type": "file"
   },
   {
     "id": 16,
     "name": "Olson",
-    "type": "document"
+    "type": "file"
   },
   {
     "id": 17,
     "name": "Stacey",
-    "type": "document"
+    "type": "file"
   },
   {
     "id": 18,
     "name": "Christian",
-    "type": "archive"
+    "type": "file"
   },
   {
     "id": 19,
     "name": "Young",
-    "type": "document"
+    "type": "file"
   },
   {
     "id": 20,
     "name": "Myra",
-    "type": "document"
+    "type": "file"
   },
   {
     "id": 21,
@@ -112,7 +112,7 @@
   {
     "id": 22,
     "name": "Aileen",
-    "type": "document"
+    "type": "file"
   },
   {
     "id": 23,
@@ -127,12 +127,12 @@
   {
     "id": 25,
     "name": "Mariana",
-    "type": "document"
+    "type": "file"
   },
   {
     "id": 26,
     "name": "Terry",
-    "type": "document"
+    "type": "file"
   },
   {
     "id": 27,

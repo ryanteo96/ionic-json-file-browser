@@ -1,4 +1,5 @@
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+    crossorigin="anonymous">
 
 <div>
     <ng-container [ngSwitch]="type">
@@ -7,7 +8,7 @@
             <i *ngIf="!state" class="fas fa-folder file-icon"></i>
             <i *ngIf="state" class="fas fa-folder-open file-icon"></i>
         </ng-container>
-        <i *ngSwitchCase="'document'" class="fas fa-file-alt file-icon"></i>
+        <i *ngSwitchCase="'file'" class="fas fa-file-alt file-icon"></i>
         <i *ngSwitchCase="'archive'" class="fas fa-file-archive file-icon"></i>
         <!-- Office file types -->
         <i *ngSwitchCase="'pdf'" class="fas fa-file-pdf file-icon"></i>

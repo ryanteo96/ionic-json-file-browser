@@ -1,16 +1,14 @@
-import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
+import { Component } from "@angular/core";
+import { Platform } from "ionic-angular";
 
-import { TestPage } from '../pages/testing/testing';
+import { TestPage } from "../pages/testing/testing";
 @Component({
-  templateUrl: 'app.html'
+	templateUrl: "app.html"
 })
 export class MyApp {
-  rootPage:any = TestPage;
+	rootPage: any = TestPage;
 
-  constructor(platform: Platform) {
-    platform.ready().then(() => {
-    });
-  }
+	constructor(platform: Platform) {
+		platform.ready().then(() => {});
+	}
 }
-
