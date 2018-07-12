@@ -1,21 +1,19 @@
-<div class="file-browser-list-mobile">
+<div class="file-browser-list">
     <ion-list>
-        <ion-grid class="table-grid-mobile">
-            <ng-container *ngIf="nodes$">
-                <ng-container *ngFor="let node of nodes$ | async">
-                    <ion-row class="grid-item-mobile" (click)="showNode(node)">
-                        <ion-col col-1 col-xs>
+        <ng-container *ngIf="nodes$">
+            <ng-container *ngFor="let node of nodes$ | async">
+                <div class="list-item">
+                    <ion-row class="list-row">
+                        <div class="list-label" (click)="showNode(node)" oncontextmenu="return false" (contextmenu)="showActionSheet(node)">
                             <file-browser-icon [type]="node.type"></file-browser-icon>
-                        </ion-col>
-                        <ion-col align-self-center>
                             {{ node.name }}
-                        </ion-col>
-                        <ion-col col-1 col-xs (click)="showActionSheet(node)">
-                            <ion-icon class="list-more-icon" name="md-more"></ion-icon>
-                        </ion-col>
+                        </div>
+                        <ion-icon class="list-option" name="md-more" (click)="showActionSheet(node)" oncontextmenu="return false" (contextmenu)="showActionSheet(node)"></ion-icon>
                     </ion-row>
-                </ng-container>
+                </div>
             </ng-container>
-        </ion-grid>
+        </ng-container>
     </ion-list>
 </div>
+
+<!-- </div> -->

@@ -2,151 +2,151 @@
   {
     "id": 0,
     "name": "Rutledge",
-    "type": "Folder"
+    "type": "folder"
   },
   {
     "id": 1,
     "name": "Sybil",
-    "type": "Folder"
+    "type": "folder"
   },
   {
     "id": 2,
     "name": "Wong",
-    "type": "Folder"
+    "type": "folder"
   },
   {
     "id": 3,
     "name": "Banks",
-    "type": "Folder"
+    "type": "folder"
   },
   {
     "id": 4,
     "name": "Clarke",
-    "type": "Folder"
+    "type": "folder"
   },
   {
     "id": 5,
     "name": "Harper",
-    "type": "Folder"
+    "type": "folder"
   },
   {
     "id": 6,
     "name": "Spence",
-    "type": "Folder"
+    "type": "folder"
   },
   {
     "id": 7,
     "name": "Spence",
-    "type": "Folder"
+    "type": "folder"
   },
   {
     "id": 8,
     "name": "Irwin",
-    "type": "Folder"
+    "type": "folder"
   },
   {
     "id": 9,
     "name": "Test",
-    "type": "Document"
+    "type": "file"
   },
   {
     "id": 10,
     "name": "Bettie",
-    "type": "Document"
+    "type": "word"
   },
   {
     "id": 11,
     "name": "Bauer",
-    "type": "Document"
+    "type": "file"
   },
   {
     "id": 12,
     "name": "Lorena",
-    "type": "Document"
+    "type": "audio"
   },
   {
     "id": 13,
     "name": "Marva",
-    "type": "Document"
+    "type": "file"
   },
   {
     "id": 14,
     "name": "Livingston",
-    "type": "Document"
+    "type": "archive"
   },
   {
     "id": 15,
     "name": "Phoebe",
-    "type": "Document"
+    "type": "file"
   },
   {
     "id": 16,
     "name": "Olson",
-    "type": "Document"
+    "type": "file"
   },
   {
     "id": 17,
     "name": "Stacey",
-    "type": "Document"
+    "type": "file"
   },
   {
     "id": 18,
     "name": "Christian",
-    "type": "Document"
+    "type": "file"
   },
   {
     "id": 19,
     "name": "Young",
-    "type": "Document"
+    "type": "file"
   },
   {
     "id": 20,
     "name": "Myra",
-    "type": "Document"
+    "type": "file"
   },
   {
     "id": 21,
     "name": "Foley",
-    "type": "Document"
+    "type": "code"
   },
   {
     "id": 22,
     "name": "Aileen",
-    "type": "Document"
+    "type": "file"
   },
   {
     "id": 23,
     "name": "Imelda",
-    "type": "Document"
+    "type": "image"
   },
   {
     "id": 24,
     "name": "Kay",
-    "type": "Document"
+    "type": "video"
   },
   {
     "id": 25,
     "name": "Mariana",
-    "type": "Document"
+    "type": "file"
   },
   {
     "id": 26,
     "name": "Terry",
-    "type": "Document"
+    "type": "file"
   },
   {
     "id": 27,
     "name": "Glass",
-    "type": "Document"
+    "type": "pdf"
   },
   {
     "id": 28,
     "name": "Garza",
-    "type": "Document"
+    "type": "powerpoint"
   },
   {
     "id": 29,
     "name": "Frederick",
-    "type": "Document"
+    "type": "excel"
   }
 ]

@@ -2,6 +2,10 @@
     overflow: auto;
 }
 
+.action-sheet-button {
+    transition: 0.25s;
+}
+
 .action-sheet-button:hover {
-    background: rgb(217, 217, 217);
+    background: rgb(233, 240, 253);
 }

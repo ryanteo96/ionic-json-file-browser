@@ -3,20 +3,20 @@ import { Store, Select } from "@ngxs/store";
 import { Observable } from "rxjs";
 import { ActionSheetController } from "ionic-angular";
 import { FileBrowserState } from "../../states/file-browser.state";
-import { FileBrowserContainerCoreComponent } from "../file-browser-container/file-browser-container-core.component";
+import { FileBrowserContainerMobileComponent } from "../file-browser-container/file-browser-container-mobile.component";
 import { Open } from "../../states/file-browser.actions";
 
 @Component({
-	selector: "file-browser-action-sheet",
+	selector: "file-browser-action-sheet-mobile",
 	templateUrl: "file-browser-action-sheet.html",
-	styleUrls: ["file-browser-action-sheet.scss"],
-	providers: [FileBrowserContainerCoreComponent]
+	styleUrls: ["file-browser-action-sheet-mobile.scss"],
+	providers: [FileBrowserContainerMobileComponent]
 })
-export class FileBrowserActionSheetComponent {
+export class FileBrowserActionSheetMobileComponent {
 	constructor(
 		public store: Store,
 		public actionSheetCtrl: ActionSheetController,
-		public fileBrowserContainerCore: FileBrowserContainerCoreComponent
+		public fileBrowserContainerMobile: FileBrowserContainerMobileComponent
 	) {}
 
 	@Select(FileBrowserState.getOS) os$: Observable<String>;
@@ -35,34 +35,37 @@ export class FileBrowserActionSheetComponent {
 		icon: "add",
 		text: "New Folder",
 		handler: () =>
-			this.fileBrowserContainerCore.presentAlert("new-folder", this.node)
+			this.fileBrowserContainerMobile.presentAlert(
+				"new-folder",
+				this.node
+			)
 	};
 
 	newFileBtn = {
 		icon: "add",
 		text: "New File",
 		handler: () =>
-			this.fileBrowserContainerCore.presentAlert("new-file", this.node)
+			this.fileBrowserContainerMobile.presentAlert("new-file", this.node)
 	};
 
 	renameBtn = {
 		icon: "create",
 		text: "Rename",
 		handler: () =>
-			this.fileBrowserContainerCore.presentAlert("rename", this.node)
+			this.fileBrowserContainerMobile.presentAlert("rename", this.node)
 	};
 
 	deleteBtn = {
 		icon: "trash",
 		text: "Delete",
 		handler: () =>
-			this.fileBrowserContainerCore.presentAlert("delete", this.node)
+			this.fileBrowserContainerMobile.presentAlert("delete", this.node)
 	};
 
 	// propertiesBtn = {
 	//     icon: 'information',
 	//     text: 'Properties',
-	//     handler: () => this.fileBrowserContainerCore.presentModal(),
+	//     handler: () => this.fileBrowserContainerMobile.presentModal(),
 	// }
 
 	presentActionSheet(node) {
@@ -82,24 +85,15 @@ export class FileBrowserActionSheetComponent {
 					title: "Options",
 					buttons: [
 						this.newFolderBtn,
+						// this.newFileBtn,
 						this.renameBtn,
 						this.deleteBtn
-						// this.newFileBtn,
 						// this.propertiesBtn,
 					]
 				};
 				break;
 			}
-			case "file":
-			case "word":
-			case "excel":
-			case "powerpoint":
-			case "pdf":
-			case "code":
-			case "archive":
-			case "image":
-			case "video":
-			case "audio": {
+			case "document": {
 				actionSheet = {
 					title: "Options",
 					buttons: [

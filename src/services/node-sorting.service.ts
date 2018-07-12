@@ -26,8 +26,8 @@ export class NodeSortingService {
     sortNodes(sort, array) {
         this.nodes = array;
 
-        const folderNodes = this.nodes.filter(a => a.type === 'Folder');
-        const otherNodes = this.nodes.filter(a => a.type !== 'Folder');
+        const folderNodes = this.nodes.filter(a => a.type === 'folder');
+        const otherNodes = this.nodes.filter(a => a.type !== 'folder');
 
         switch (sort) {
             case 'asc': {
