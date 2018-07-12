@@ -1,7 +1,7 @@
 # Ionic JSON File Browser
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/69ea6eb4cdfe4fe98a8c2d98913faba6)](https://www.codacy.com/app/ryanteo96/ionic-json-file-browser?utm_source=github.com&utm_medium=referral&utm_content=ryanteo96/ionic-json-file-browser&utm_campaign=Badge_Grade) [![npm version](https://badge.fury.io/js/ionic-json-file-browser.svg)](https://badge.fury.io/js/ionic-json-file-browser)
-![Imgur](https://i.imgur.com/FI66rjs.png)
+![Imgur](https://i.imgur.com/0mllPjV.png)
 Ionic JSON File Browser is a custom Ionic module that can render a file browser.
 
 ## Features
