@@ -35,7 +35,9 @@ export class FileBrowserListComponent implements OnInit {
 
 	selectNode(node, event) {
 		if (event.ctrlKey || event.metaKey) {
-			this.store.dispatch(new SelectNode(node.id, true));
-		} else this.store.dispatch(new SelectNode(node.id, false));
+			this.store.dispatch(new SelectNode(node.id, true, "alt"));
+		} else if (event.shiftKey) {
+			this.store.dispatch(new SelectNode(node.id, true, "shift"));
+		} else this.store.dispatch(new SelectNode(node.id, false, ""));
 	}
 }

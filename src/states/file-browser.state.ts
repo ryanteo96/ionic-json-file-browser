@@ -1,4 +1,11 @@
-import { State, Action, StateContext, Selector, Store } from "@ngxs/store";
+import {
+	State,
+	Action,
+	StateContext,
+	Selector,
+	Store,
+	StateStream
+} from "@ngxs/store";
 import { Node, Entity, NodeEntity } from "./file-browser.model";
 import {
 	GenerateFileBrowser,
@@ -22,6 +29,7 @@ export interface FileBrowserStateModel {
 	currentNode: NodeEntity;
 	childNodes: NodeEntity[];
 	history: NodeEntity[];
+	selectedNode: NodeEntity;
 	sort: String;
 	sidebar: Boolean;
 	os: String;
@@ -34,6 +42,7 @@ export interface FileBrowserStateModel {
 		entities: [],
 		nodeEntity: [],
 		currentNode: <NodeEntity>{},
+		selectedNode: <NodeEntity>{},
 		childNodes: [],
 		history: [],
 		sort: "asc",
@@ -42,10 +51,7 @@ export interface FileBrowserStateModel {
 	}
 })
 export class FileBrowserState {
-	constructor(
-		private store: Store,
-		private nodeSorting: NodeSortingService
-	) {}
+	constructor(public store: Store, public nodeSorting: NodeSortingService) {}
 
 	@Selector()
 	static getNodes(state: FileBrowserStateModel) {
@@ -130,36 +136,80 @@ export class FileBrowserState {
 	@Action(SelectNode)
 	selectNode(
 		{ getState, patchState }: StateContext<FileBrowserStateModel>,
-		{ node, multi }: SelectNode
+		{ node, multi, type }: SelectNode
 	) {
 		const state = getState();
 
 		if (!multi) {
 			const childNode = state.childNodes.map(function(node) {
-				let nodeEntity = <NodeEntity>{};
-				nodeEntity.id = node.id;
-				nodeEntity.parent = node.parent;
-				nodeEntity.child = node.child;
-				nodeEntity.name = node.name;
-				nodeEntity.type = node.type;
-				nodeEntity.collapsed = false;
-				nodeEntity.selected = false;
-				return nodeEntity;
+				node.selected = false;
+				return node;
 			});
 
 			const selectedNode = childNode.find(a => a.id === node);
 			selectedNode.selected = true;
 
 			patchState({
-				childNodes: childNode
+				childNodes: childNode,
+				selectedNode: selectedNode
 			});
 		} else if (multi) {
-			const childNode = state.childNodes.find(a => a.id === node);
-			childNode.selected = true;
+			if (type === "alt") {
+				const selectedNode = state.childNodes.find(a => a.id === node);
+				selectedNode.selected = true;
 
-			patchState({
-				childNodes: state.childNodes
-			});
+				patchState({
+					childNodes: state.childNodes,
+					selectedNode: selectedNode
+				});
+			} else if (type === "shift") {
+				let childNode = state.childNodes.map(function(node) {
+					node.selected = false;
+					return node;
+				});
+
+				const selectedNode = childNode.find(a => a.id === node);
+
+				if (
+					state.childNodes.indexOf(selectedNode) >
+					state.childNodes.indexOf(state.selectedNode)
+				) {
+					childNode = state.childNodes.map(function(node) {
+						if (
+							state.childNodes.indexOf(node) <=
+								state.childNodes.indexOf(selectedNode) &&
+							state.childNodes.indexOf(node) >=
+								state.childNodes.indexOf(state.selectedNode)
+						) {
+							node.selected = true;
+							return node;
+						}
+
+						return node;
+					});
+				} else if (
+					state.childNodes.indexOf(selectedNode) <
+					state.childNodes.indexOf(state.selectedNode)
+				) {
+					childNode = state.childNodes.map(function(node) {
+						if (
+							state.childNodes.indexOf(node) >=
+								state.childNodes.indexOf(selectedNode) &&
+							state.childNodes.indexOf(node) <=
+								state.childNodes.indexOf(state.selectedNode)
+						) {
+							node.selected = true;
+							return node;
+						}
+
+						return node;
+					});
+				}
+
+				patchState({
+					childNodes: childNode
+				});
+			}
 		}
 	}
 
@@ -171,15 +221,8 @@ export class FileBrowserState {
 		const state = getState();
 
 		const childNode = state.childNodes.map(function(node) {
-			let nodeEntity = <NodeEntity>{};
-			nodeEntity.id = node.id;
-			nodeEntity.parent = node.parent;
-			nodeEntity.child = node.child;
-			nodeEntity.name = node.name;
-			nodeEntity.type = node.type;
-			nodeEntity.collapsed = false;
-			nodeEntity.selected = false;
-			return nodeEntity;
+			node.selected = false;
+			return node;
 		});
 
 		patchState({

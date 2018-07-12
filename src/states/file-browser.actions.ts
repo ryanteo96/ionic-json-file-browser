@@ -15,7 +15,11 @@ export class GetNode {
 export class SelectNode {
 	static readonly type = "[Node] Select";
 
-	constructor(public node: number, public multi: boolean) {}
+	constructor(
+		public node: number,
+		public multi: boolean,
+		public type: string
+	) {}
 }
 
 export class UnselectNode {
