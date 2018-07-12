@@ -18,6 +18,12 @@ export class SelectNode {
 	constructor(public node: number, public multi: boolean) {}
 }
 
+export class UnselectNode {
+	static readonly type = "[Node] Unselect";
+
+	constructor() {}
+}
+
 export class GenerateHistory {
 	static readonly type = "[Browser] History";
 

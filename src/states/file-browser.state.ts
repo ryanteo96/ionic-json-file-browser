@@ -10,7 +10,8 @@ import {
 	ToggleFolder,
 	SortNodes,
 	ShowTree,
-	SetOS
+	SetOS,
+	UnselectNode
 } from "./file-browser.actions";
 import { NodeSortingService } from "../services/node-sorting.service";
 
@@ -20,7 +21,6 @@ export interface FileBrowserStateModel {
 	nodeEntity: NodeEntity[];
 	currentNode: NodeEntity;
 	childNodes: NodeEntity[];
-	selectedNode: NodeEntity[];
 	history: NodeEntity[];
 	sort: String;
 	sidebar: Boolean;
@@ -35,7 +35,6 @@ export interface FileBrowserStateModel {
 		nodeEntity: [],
 		currentNode: <NodeEntity>{},
 		childNodes: [],
-		selectedNode: [],
 		history: [],
 		sort: "asc",
 		sidebar: true,
@@ -159,9 +158,33 @@ export class FileBrowserState {
 			childNode.selected = true;
 
 			patchState({
-				selectedNode: [...state.selectedNode, childNode]
+				childNodes: state.childNodes
 			});
 		}
+	}
+
+	@Action(UnselectNode)
+	unselectNode({
+		getState,
+		patchState
+	}: StateContext<FileBrowserStateModel>) {
+		const state = getState();
+
+		const childNode = state.childNodes.map(function(node) {
+			let nodeEntity = <NodeEntity>{};
+			nodeEntity.id = node.id;
+			nodeEntity.parent = node.parent;
+			nodeEntity.child = node.child;
+			nodeEntity.name = node.name;
+			nodeEntity.type = node.type;
+			nodeEntity.collapsed = false;
+			nodeEntity.selected = false;
+			return nodeEntity;
+		});
+
+		patchState({
+			childNodes: childNode
+		});
 	}
 
 	@Action(GenerateHistory)
