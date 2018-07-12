@@ -31,6 +31,10 @@ export class FileBrowserListComponent implements OnInit {
 	showActionSheet(node) {
 		event.stopPropagation();
 		this.fileBrowserActionSheet.presentActionSheet(node);
+
+		if (!node.selected) {
+			this.store.dispatch(new SelectNode(node.id, false, ""));
+		}
 	}
 
 	selectNode(node, event) {
