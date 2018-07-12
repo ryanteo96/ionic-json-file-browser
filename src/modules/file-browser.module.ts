@@ -21,6 +21,7 @@ import { FileBrowserListMobileComponent } from "../components/file-browser-list/
 import { FileBrowserTreeComponent } from "../components/file-browser-tree/file-browser-tree.component";
 import { FileBrowserIconComponent } from "../components/file-browser-icon/file-browser-icon.component";
 import { FileBrowserActionSheetComponent } from "../components/file-browser-action-sheet/file-browser-action-sheet.component";
+import { FileBrowserActionSheetMobileComponent } from "../components/file-browser-action-sheet/file-browser-action-sheet-mobile.component";
 import { FileBrowserAlertComponent } from "../components/file-browser-alert/file-browser-alert.component";
 import { FileBrowserModalComponent } from "../components/file-browser-modal/file-browser-modal.component";
 import { FileBrowserPropertiesComponent } from "../components/file-browser-properties/file-browser-properties.component";
@@ -44,6 +45,7 @@ import { FileBrowserPropertiesComponent } from "../components/file-browser-prope
 		FileBrowserTreeComponent,
 		FileBrowserIconComponent,
 		FileBrowserActionSheetComponent,
+		FileBrowserActionSheetMobileComponent,
 		FileBrowserAlertComponent,
 		FileBrowserModalComponent,
 		FileBrowserPropertiesComponent
@@ -59,6 +61,7 @@ import { FileBrowserPropertiesComponent } from "../components/file-browser-prope
 		FileBrowserTreeComponent,
 		FileBrowserIconComponent,
 		FileBrowserActionSheetComponent,
+		FileBrowserActionSheetMobileComponent,
 		FileBrowserAlertComponent,
 		FileBrowserModalComponent,
 		FileBrowserPropertiesComponent
