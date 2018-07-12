@@ -12,16 +12,16 @@ export class GetNode {
 	constructor(public node: number) {}
 }
 
+export class SelectNode {
+	static readonly type = "[Node] Select";
+
+	constructor(public node: number, public multi: boolean) {}
+}
+
 export class GenerateHistory {
 	static readonly type = "[Browser] History";
 
 	constructor(public node: number) {}
-}
-
-export class NodeSelect {
-	static readonly type = "[Tree] Select";
-
-	constructor(public node: Node) {}
 }
 
 export class GenerateTreeFirstLevel {
