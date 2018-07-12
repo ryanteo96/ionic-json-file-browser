@@ -1,0 +1,19 @@
+<div class="file-browser-list">
+    <ion-list>
+        <ng-container *ngIf="nodes$">
+            <ng-container *ngFor="let node of nodes$ | async">
+                <div class="list-item">
+                    <ion-row class="list-row">
+                        <div class="list-label" (click)="showNode(node)" oncontextmenu="return false" (contextmenu)="showActionSheet(node)">
+                            <file-browser-icon [type]="node.type"></file-browser-icon>
+                            {{ node.name }}
+                        </div>
+                        <ion-icon class="list-option" name="md-more" (click)="showActionSheet(node)" oncontextmenu="return false" (contextmenu)="showActionSheet(node)"></ion-icon>
+                    </ion-row>
+                </div>
+            </ng-container>
+        </ng-container>
+    </ion-list>
+</div>
+
+<!-- </div> -->
