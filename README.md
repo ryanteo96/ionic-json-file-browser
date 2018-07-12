@@ -18,8 +18,6 @@ Ionic JSON File Browser is a custom Ionic module that can render a file browser.
 
 ## Installation
 
-q
-
 ```sh
 $ npm install ionic-json-file-browser
 ```
