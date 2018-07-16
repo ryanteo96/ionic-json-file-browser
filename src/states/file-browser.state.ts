@@ -32,6 +32,7 @@ export interface FileBrowserStateModel {
 	sort: String;
 	sidebar: Boolean;
 	os: String;
+	multiSelect: boolean;
 }
 
 @State<FileBrowserStateModel>({
@@ -46,7 +47,8 @@ export interface FileBrowserStateModel {
 		history: [],
 		sort: "asc",
 		sidebar: true,
-		os: ""
+		os: "",
+		multiSelect: false
 	}
 })
 export class FileBrowserState {
@@ -93,6 +95,12 @@ export class FileBrowserState {
 	@Selector()
 	static getOS(state: FileBrowserStateModel): String {
 		return state.os;
+	}
+
+	/* Getting the boolean value of multiselect */
+	@Selector()
+	static getMultiSelect(state: FileBrowserStateModel): Boolean {
+		return state.multiSelect;
 	}
 	/* ===================================== End of Selector Functions ===================================== */
 
@@ -164,7 +172,8 @@ export class FileBrowserState {
 
 			patchState({
 				childNodes: childNode,
-				selectedNode: selectedNode
+				selectedNode: selectedNode,
+				multiSelect: false
 			});
 			/* If alt/shift keys are held during selection */
 		} else if (multi) {
@@ -172,9 +181,11 @@ export class FileBrowserState {
 				const selectedNode = state.childNodes.find(a => a.id === node);
 				selectedNode.selected = true;
 
+				/* potential bug ⁉️ */
 				patchState({
 					childNodes: state.childNodes,
-					selectedNode: selectedNode
+					selectedNode: selectedNode,
+					multiSelect: true
 				});
 			} else if (type === "shift") {
 				let childNode = state.childNodes.map(function(node) {
@@ -222,7 +233,8 @@ export class FileBrowserState {
 				}
 
 				patchState({
-					childNodes: childNode
+					childNodes: childNode,
+					multiSelect: true
 				});
 			}
 		}
@@ -242,7 +254,8 @@ export class FileBrowserState {
 		});
 
 		patchState({
-			childNodes: childNode
+			childNodes: childNode,
+			multiSelect: false
 		});
 	}
 
@@ -391,7 +404,7 @@ export class FileBrowserState {
 	@Action(DeleteNodes)
 	deleteNodes({ getState }: StateContext<FileBrowserStateModel>) {
 		const state = getState();
-		const selectedNodes = state.childNodes.filter(a => a.selected === true);
+		const selectedNodes = state.childNodes.filter(a => a.selected);
 		const nodeIds = selectedNodes.map(function(node) {
 			return node.id;
 		});

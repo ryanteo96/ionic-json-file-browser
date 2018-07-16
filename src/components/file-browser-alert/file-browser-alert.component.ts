@@ -101,7 +101,7 @@ export class FileBrowserAlertComponent {
 						},
 						{
 							text: "Yes",
-							handler: () => this.delete(node)
+							handler: () => this.delete()
 						}
 					]
 				});
@@ -120,8 +120,7 @@ export class FileBrowserAlertComponent {
 		this.store.dispatch(new Rename(node, data.name));
 	}
 
-	delete(node) {
-		// this.store.dispatch(new Delete(node));
+	delete() {
 		this.store.dispatch(new DeleteNodes());
 	}
 }

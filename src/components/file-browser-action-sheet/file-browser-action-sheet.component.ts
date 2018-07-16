@@ -23,7 +23,9 @@ export class FileBrowserActionSheetComponent {
 		public fileBrowserContainerCore: FileBrowserContainerCoreComponent
 	) {}
 
-	@Select(FileBrowserState.getOS) os$: Observable<String>;
+	// @Select(FileBrowserState.getOS) os$: Observable<String>;
+
+	@Select(FileBrowserState.getMultiSelect) multiSelect$: Observable<Boolean>;
 
 	node: number;
 
@@ -70,9 +72,23 @@ export class FileBrowserActionSheetComponent {
 	// }
 
 	presentActionSheet(node) {
-		let actionSheet = this.actionSheetCtrl.create(
-			this.getActionSheetOptions(node.type)
-		);
+		let actionSheet;
+		let multi: Boolean;
+
+		this.multiSelect$.subscribe(a => {
+			multi = a;
+		});
+
+		if (multi) {
+			actionSheet = this.actionSheetCtrl.create(
+				this.getActionSheetOptions("multi")
+			);
+		} else {
+			actionSheet = this.actionSheetCtrl.create(
+				this.getActionSheetOptions(node.type)
+			);
+		}
+
 		this.node = node.id;
 		actionSheet.present();
 	}
@@ -109,6 +125,17 @@ export class FileBrowserActionSheetComponent {
 					buttons: [
 						this.openBtn,
 						this.renameBtn,
+						this.deleteBtn
+						// this.propertiesBtn,
+					]
+				};
+				break;
+			}
+			case "multi": {
+				actionSheet = {
+					title: "Options",
+					buttons: [
+						this.openBtn,
 						this.deleteBtn
 						// this.propertiesBtn,
 					]
