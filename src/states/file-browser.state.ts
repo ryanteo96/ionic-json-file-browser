@@ -15,7 +15,9 @@ import {
 	SortNodes,
 	ShowTree,
 	SetOS,
-	UnselectNode
+	UnselectNode,
+	Delete,
+	DeleteNodes
 } from "./file-browser.actions";
 import { NodeSortingService } from "../services/node-sorting.service";
 
@@ -383,6 +385,18 @@ export class FileBrowserState {
 		patchState({
 			os: os
 		});
+	}
+
+	/* Setting nodes to be deleted before dispatching Delete action */
+	@Action(DeleteNodes)
+	deleteNodes({ getState }: StateContext<FileBrowserStateModel>) {
+		const state = getState();
+		const selectedNodes = state.childNodes.filter(a => a.selected === true);
+		const nodeIds = selectedNodes.map(function(node) {
+			return node.id;
+		});
+
+		this.store.dispatch(new Delete(nodeIds));
 	}
 
 	/* ======================================= End of Action Functions ====================================== */

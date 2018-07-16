@@ -5,7 +5,12 @@
 import { Component } from "@angular/core";
 import { AlertController } from "ionic-angular";
 import { Store } from "@ngxs/store";
-import { NewFolder, Rename, Delete } from "../../states/file-browser.actions";
+import {
+	NewFolder,
+	Rename,
+	Delete,
+	DeleteNodes
+} from "../../states/file-browser.actions";
 
 @Component({
 	selector: "file-browser-alert",
@@ -116,6 +121,7 @@ export class FileBrowserAlertComponent {
 	}
 
 	delete(node) {
-		this.store.dispatch(new Delete(node));
+		// this.store.dispatch(new Delete(node));
+		this.store.dispatch(new DeleteNodes());
 	}
 }

@@ -119,6 +119,7 @@ export class FileBrowserActionSheetComponent {
 				actionSheet = {
 					title: "Options",
 					buttons: [
+						this.openBtn,
 						this.renameBtn,
 						this.deleteBtn
 						// this.propertiesBtn,

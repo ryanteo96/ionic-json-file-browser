@@ -95,5 +95,11 @@ export class Rename {
 export class Delete {
 	static readonly type = "[Node] Delete";
 
-	constructor(public node_id: number) {}
+	constructor(public node_id: number[]) {}
+}
+
+export class DeleteNodes {
+	static readonly type = "[Node] Delete Nodes";
+
+	constructor() {}
 }
