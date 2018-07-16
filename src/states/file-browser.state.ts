@@ -179,7 +179,10 @@ export class FileBrowserState {
 		} else if (multi) {
 			if (type === "alt") {
 				const selectedNode = state.childNodes.find(a => a.id === node);
-				selectedNode.selected = true;
+
+				if (selectedNode.selected) {
+					selectedNode.selected = false;
+				} else selectedNode.selected = true;
 
 				/* potential bug ⁉️ */
 				patchState({
