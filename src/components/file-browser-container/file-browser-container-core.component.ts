@@ -1,8 +1,12 @@
+/* ==================================================================================================== */
+/* File Browser Container Component (Desktop)                             															*/
+/* ==================================================================================================== */
+
 import { Component, OnInit } from "@angular/core";
 import {
-  NavController,
-  LoadingController,
-  ActionSheetController
+	NavController,
+	LoadingController,
+	ActionSheetController
 } from "ionic-angular";
 import { Observable } from "rxjs";
 import { Select } from "@ngxs/store";
@@ -12,40 +16,40 @@ import { FileBrowserAlertComponent } from "../file-browser-alert/file-browser-al
 import { FileBrowserModalComponent } from "../file-browser-modal/file-browser-modal.component";
 
 @Component({
-  selector: "file-browser-core",
-  templateUrl: "file-browser-container-core.html",
-  styleUrls: ["file-browser-container-core.scss"],
-  providers: [FileBrowserAlertComponent, FileBrowserModalComponent]
+	selector: "file-browser-core",
+	templateUrl: "file-browser-container-core.html",
+	styleUrls: ["file-browser-container-core.scss"],
+	providers: [FileBrowserAlertComponent, FileBrowserModalComponent]
 })
 export class FileBrowserContainerCoreComponent implements OnInit {
-  @Select(FileBrowserState.getSidebar) sidebar$: Observable<Boolean>;
+	@Select(FileBrowserState.getSidebar) sidebar$: Observable<Boolean>;
 
-  constructor(
-    public navCtrl: NavController,
-    public loadingCtrl: LoadingController,
-    public actionSheetCtrl: ActionSheetController,
-    public fileBrowser: FileBrowser,
-    public alertComponent: FileBrowserAlertComponent,
-    public modalComponent: FileBrowserModalComponent
-  ) {}
+	constructor(
+		public navCtrl: NavController,
+		public loadingCtrl: LoadingController,
+		public actionSheetCtrl: ActionSheetController,
+		public fileBrowser: FileBrowser,
+		public alertComponent: FileBrowserAlertComponent,
+		public modalComponent: FileBrowserModalComponent
+	) {}
 
-  ngOnInit() {
-    // this.presentLoading();
-  }
+	ngOnInit() {
+		// this.presentLoading();
+	}
 
-  presentLoading() {
-    const loader = this.loadingCtrl.create({
-      content: "Loading files...",
-      duration: 3000
-    });
-    loader.present();
-  }
+	presentLoading() {
+		const loader = this.loadingCtrl.create({
+			content: "Loading files...",
+			duration: 3000
+		});
+		loader.present();
+	}
 
-  presentAlert(type, node) {
-    this.alertComponent.presentAlert(type, node);
-  }
+	presentAlert(type, node) {
+		this.alertComponent.presentAlert(type, node);
+	}
 
-  presentModal() {
-    this.modalComponent.presentModal();
-  }
+	presentModal() {
+		this.modalComponent.presentModal();
+	}
 }

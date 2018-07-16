@@ -1,11 +1,8 @@
-import {
-	State,
-	Action,
-	StateContext,
-	Selector,
-	Store,
-	StateStream
-} from "@ngxs/store";
+/* ==================================================================================================== */
+/* File Browser State 																					*/
+/* ==================================================================================================== */
+
+import { State, Action, StateContext, Selector, Store } from "@ngxs/store";
 import { Node, Entity, NodeEntity } from "./file-browser.model";
 import {
 	GenerateFileBrowser,
@@ -53,41 +50,52 @@ export interface FileBrowserStateModel {
 export class FileBrowserState {
 	constructor(public store: Store, public nodeSorting: NodeSortingService) {}
 
+	/* ======================================== Selector Functions ======================================== */
+	/* Getting all nodes */
 	@Selector()
 	static getNodes(state: FileBrowserStateModel) {
 		return state.nodes;
 	}
 
+	/* Getting all nodes with entities */
 	@Selector()
 	static getNodeEntity(state: FileBrowserStateModel) {
 		return state.nodeEntity;
 	}
 
+	/* Getting all child nodes of a parent node */
 	@Selector()
 	static getChildNodes(state: FileBrowserStateModel) {
 		return state.childNodes;
 	}
 
+	/* Getting navigation history */
 	@Selector()
 	static getHistory(state: FileBrowserStateModel) {
 		return state.history;
 	}
 
+	/* Getting sorting(ascending/descending) of the nodes */
 	@Selector()
 	static getSort(state: FileBrowserStateModel): String {
 		return state.sort;
 	}
 
+	/* Getting the boolean value of sidebar presence */
 	@Selector()
 	static getSidebar(state: FileBrowserStateModel): Boolean {
 		return state.sidebar;
 	}
 
+	/* Getting the device operating system */
 	@Selector()
 	static getOS(state: FileBrowserStateModel): String {
 		return state.os;
 	}
+	/* ===================================== End of Selector Functions ===================================== */
 
+	/* ========================================== Action Functions ========================================= */
+	/* Generating all nodes with entites */
 	@Action(GenerateFileBrowser)
 	generateFileBrowser(
 		{ patchState }: StateContext<FileBrowserStateModel>,
@@ -116,6 +124,7 @@ export class FileBrowserState {
 		});
 	}
 
+	/* Setting current node and child nodes to be displayed on the file browser  */
 	@Action(GetNode)
 	getNode(
 		{ getState, patchState }: StateContext<FileBrowserStateModel>,
@@ -133,6 +142,7 @@ export class FileBrowserState {
 		this.store.dispatch(new GenerateHistory(node));
 	}
 
+	/* Setting select attribute on nodes that have been selected in the file browser */
 	@Action(SelectNode)
 	selectNode(
 		{ getState, patchState }: StateContext<FileBrowserStateModel>,
@@ -140,6 +150,7 @@ export class FileBrowserState {
 	) {
 		const state = getState();
 
+		/* If alt/shift keys are not held during selection */
 		if (!multi) {
 			const childNode = state.childNodes.map(function(node) {
 				node.selected = false;
@@ -153,6 +164,7 @@ export class FileBrowserState {
 				childNodes: childNode,
 				selectedNode: selectedNode
 			});
+			/* If alt/shift keys are held during selection */
 		} else if (multi) {
 			if (type === "alt") {
 				const selectedNode = state.childNodes.find(a => a.id === node);
@@ -170,6 +182,7 @@ export class FileBrowserState {
 
 				const selectedNode = childNode.find(a => a.id === node);
 
+				/* Selecting a range of nodes based on the second selection and anchor node */
 				if (
 					state.childNodes.indexOf(selectedNode) >
 					state.childNodes.indexOf(state.selectedNode)
@@ -213,6 +226,7 @@ export class FileBrowserState {
 		}
 	}
 
+	/* Removing select attribute on selected nodes */
 	@Action(UnselectNode)
 	unselectNode({
 		getState,
@@ -230,13 +244,14 @@ export class FileBrowserState {
 		});
 	}
 
+	/* Generating navigation history for the file browser */
 	@Action(GenerateHistory)
 	generateHistory(
 		{ getState, patchState }: StateContext<FileBrowserStateModel>,
 		{ node }: GenerateHistory
 	) {
 		const state = getState();
-		// Getting index of current node in history.
+		/* Getting index of current node in history. */
 		const currentNode = state.nodeEntity.find(a => a.id === node);
 
 		if (state.history.indexOf(currentNode) < 0) {
@@ -268,6 +283,7 @@ export class FileBrowserState {
 		}
 	}
 
+	/* Generating first level of the tree */
 	@Action(GenerateTreeFirstLevel)
 	generateTreeFirstLevel({
 		getState,
@@ -290,6 +306,7 @@ export class FileBrowserState {
 		});
 	}
 
+	/* Generating all other levels of the tree */
 	@Action(GenerateTreeLevels)
 	generateTreeLevels(
 		{ getState, patchState }: StateContext<FileBrowserStateModel>,
@@ -319,6 +336,7 @@ export class FileBrowserState {
 		});
 	}
 
+	/* Setting collapsed attribute on folder nodes */
 	@Action(ToggleFolder)
 	toggleFolder(
 		{ getState, patchState }: StateContext<FileBrowserStateModel>,
@@ -335,6 +353,7 @@ export class FileBrowserState {
 		});
 	}
 
+	/* Sorting nodes and setting sort attribute in the state */
 	@Action(SortNodes)
 	sortNodes(
 		{ getState, patchState }: StateContext<FileBrowserStateModel>,
@@ -348,6 +367,7 @@ export class FileBrowserState {
 		});
 	}
 
+	/* Setting sidebar attribute in the state */
 	@Action(ShowTree)
 	showTree({ getState, patchState }: StateContext<FileBrowserStateModel>) {
 		const state = getState();
@@ -357,10 +377,13 @@ export class FileBrowserState {
 		});
 	}
 
+	/* Setting operating system attribute in the state */
 	@Action(SetOS)
 	setOS({ patchState }: StateContext<FileBrowserStateModel>, { os }: SetOS) {
 		patchState({
 			os: os
 		});
 	}
+
+	/* ======================================= End of Action Functions ====================================== */
 }

@@ -1,16 +1,20 @@
-// Module imports
+/* ==================================================================================================== */
+/* File Browser Module	 																				*/
+/* ==================================================================================================== */
+
+/* Module imports */
 import { IonicModule, IonicErrorHandler } from "ionic-angular";
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule, ModuleWithProviders, ErrorHandler } from "@angular/core";
 import { NgxsModule } from "@ngxs/store";
 import { NgxsLoggerPluginModule } from "@ngxs/logger-plugin";
-// Service imports
+/* Service imports */
 import { FileBrowser } from "../services/file-browser.service";
 import { NodeSortingService } from "../services/node-sorting.service";
-// State imports
+/* State imports */
 import { FileBrowserState } from "../states/file-browser.state";
-// Component imports
+/* Component imports */
 import { FileBrowserContainerComponent } from "../components/file-browser-container/file-browser-container.component";
 import { FileBrowserContainerCoreComponent } from "../components/file-browser-container/file-browser-container-core.component";
 import { FileBrowserContainerMobileComponent } from "../components/file-browser-container/file-browser-container-mobile.component";

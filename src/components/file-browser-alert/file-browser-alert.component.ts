@@ -1,3 +1,7 @@
+/* ==================================================================================================== */
+/* File Browser Alert Component                                     									*/
+/* ==================================================================================================== */
+
 import { Component } from "@angular/core";
 import { AlertController } from "ionic-angular";
 import { Store } from "@ngxs/store";

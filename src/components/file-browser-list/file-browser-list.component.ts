@@ -1,3 +1,7 @@
+/* ==================================================================================================== */
+/* File Browser List Component																			*/
+/* ==================================================================================================== */
+
 import { Component, OnInit } from "@angular/core";
 import { Store, Select } from "@ngxs/store";
 import { Observable } from "rxjs";

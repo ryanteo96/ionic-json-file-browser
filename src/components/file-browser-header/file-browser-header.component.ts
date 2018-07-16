@@ -1,3 +1,7 @@
+/* ==================================================================================================== */
+/* File Browser Header Component                                										*/
+/* ==================================================================================================== */
+
 import { Component, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
 import { Store, Select } from "@ngxs/store";

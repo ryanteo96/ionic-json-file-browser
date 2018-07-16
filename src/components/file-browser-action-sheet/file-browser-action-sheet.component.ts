@@ -1,3 +1,7 @@
+/* ==================================================================================================== */
+/* File Browser Action Sheet Component                                     								*/
+/* ==================================================================================================== */
+
 import { Component } from "@angular/core";
 import { Store, Select } from "@ngxs/store";
 import { Observable } from "rxjs";
