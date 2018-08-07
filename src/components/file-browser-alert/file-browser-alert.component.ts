@@ -8,7 +8,6 @@ import { Store } from "@ngxs/store";
 import {
 	NewFolder,
 	Rename,
-	Delete,
 	DeleteNodes
 } from "../../states/file-browser.actions";
 

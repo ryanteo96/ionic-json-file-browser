@@ -8,7 +8,7 @@ import { Observable } from "rxjs";
 import { ActionSheetController } from "ionic-angular";
 import { FileBrowserState } from "../../states/file-browser.state";
 import { FileBrowserContainerMobileComponent } from "../file-browser-container/file-browser-container-mobile.component";
-import { Open } from "../../states/file-browser.actions";
+import { Open, OpenNodes } from "../../states/file-browser.actions";
 
 @Component({
 	selector: "file-browser-action-sheet-mobile",
@@ -31,7 +31,7 @@ export class FileBrowserActionSheetMobileComponent {
 		icon: "open",
 		text: "Open",
 		handler: () => {
-			this.store.dispatch(new Open(this.node));
+			this.store.dispatch(new OpenNodes());
 		}
 	};
 

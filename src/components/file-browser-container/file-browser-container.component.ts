@@ -27,7 +27,7 @@ export class FileBrowserContainerComponent implements OnInit {
 		public plt: Platform,
 		public store: Store
 	) {
-		console.log(this.plt.platforms());
+		// console.log(this.plt.platforms());
 
 		if (this.plt.is("core")) {
 			this.rootPage = FileBrowserContainerCoreComponent;

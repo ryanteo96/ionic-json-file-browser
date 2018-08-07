@@ -8,7 +8,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule, ModuleWithProviders, ErrorHandler } from "@angular/core";
 import { NgxsModule } from "@ngxs/store";
-import { NgxsLoggerPluginModule } from "@ngxs/logger-plugin";
+// import { NgxsLoggerPluginModule } from "@ngxs/logger-plugin";
 /* Service imports */
 import { FileBrowser } from "../services/file-browser.service";
 import { NodeSortingService } from "../services/node-sorting.service";
@@ -35,8 +35,8 @@ import { FileBrowserPropertiesComponent } from "../components/file-browser-prope
 		IonicModule,
 		BrowserModule,
 		BrowserAnimationsModule,
-		NgxsModule.forRoot([FileBrowserState]),
-		NgxsLoggerPluginModule.forRoot()
+		NgxsModule.forRoot([FileBrowserState])
+		// NgxsLoggerPluginModule.forRoot()
 	],
 	declarations: [
 		FileBrowserContainerComponent,

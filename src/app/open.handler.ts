@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Actions, ofActionSuccessful } from "@ngxs/store";
-import { Delete } from "../states/file-browser.actions";
+import { Upload } from "../../dist";
 
 @Injectable()
 export class OpenHandler {
@@ -8,10 +8,11 @@ export class OpenHandler {
 		console.log("open handler created");
 
 		this.actions$
-			.pipe(ofActionSuccessful(Delete))
-			.subscribe(({ node_id }) => {
+			.pipe(ofActionSuccessful(Upload))
+			.subscribe(({ parent_id }) => {
 				// substitute this with your own implementation
-				console.log(node_id);
+				console.log(parent_id);
+				// console.log(new_name);
 			});
 	}
 }

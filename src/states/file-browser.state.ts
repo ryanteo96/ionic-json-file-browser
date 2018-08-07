@@ -3,6 +3,7 @@
 /* ==================================================================================================== */
 
 import { State, Action, StateContext, Selector, Store } from "@ngxs/store";
+import { ErrorHandler } from "@angular/core";
 import { Node, Entity, NodeEntity } from "./file-browser.model";
 import {
 	GenerateFileBrowser,
@@ -17,7 +18,13 @@ import {
 	SetOS,
 	UnselectNode,
 	Delete,
-	DeleteNodes
+	DeleteNodes,
+	OpenNodes,
+	Open,
+	DownloadNodes,
+	Download,
+	PropertiesNodes,
+	Properties
 } from "./file-browser.actions";
 import { NodeSortingService } from "../services/node-sorting.service";
 
@@ -51,8 +58,12 @@ export interface FileBrowserStateModel {
 		multiSelect: false
 	}
 })
-export class FileBrowserState {
+export class FileBrowserState implements ErrorHandler {
 	constructor(public store: Store, public nodeSorting: NodeSortingService) {}
+
+	handleError(error) {
+		console.error(error);
+	}
 
 	/* ======================================== Selector Functions ======================================== */
 	/* Getting all nodes */
@@ -403,6 +414,18 @@ export class FileBrowserState {
 		});
 	}
 
+	/* Setting nodes to be opened before dispatching Open action */
+	@Action(OpenNodes)
+	openNodes({ getState }: StateContext<FileBrowserStateModel>) {
+		const state = getState();
+		const selectedNodes = state.childNodes.filter(a => a.selected);
+		const nodeIds = selectedNodes.map(function(node) {
+			return node.id;
+		});
+
+		this.store.dispatch(new Open(nodeIds));
+	}
+
 	/* Setting nodes to be deleted before dispatching Delete action */
 	@Action(DeleteNodes)
 	deleteNodes({ getState }: StateContext<FileBrowserStateModel>) {
@@ -413,6 +436,29 @@ export class FileBrowserState {
 		});
 
 		this.store.dispatch(new Delete(nodeIds));
+	}
+
+	/* Setting nodes to be downloaded before dispatching Download action */
+	@Action(DownloadNodes)
+	downloadNodes({ getState }: StateContext<FileBrowserStateModel>) {
+		const state = getState();
+		const selectedNodes = state.childNodes.filter(a => a.selected);
+		const nodeIds = selectedNodes.map(function(node) {
+			return node.id;
+		});
+
+		this.store.dispatch(new Download(nodeIds));
+	}
+
+	@Action(PropertiesNodes)
+	propertiesNodes({ getState }: StateContext<FileBrowserStateModel>) {
+		const state = getState();
+		const selectedNodes = state.childNodes.filter(a => a.selected);
+		const nodeIds = selectedNodes.map(function(node) {
+			return node.id;
+		});
+
+		this.store.dispatch(new Properties(nodeIds));
 	}
 
 	/* ======================================= End of Action Functions ====================================== */

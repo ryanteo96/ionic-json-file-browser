@@ -77,7 +77,13 @@ export class SetOS {
 export class Open {
 	static readonly type = "[Node] Open";
 
-	constructor(public node_id: number) {}
+	constructor(public node_id: number[]) {}
+}
+
+export class OpenNodes {
+	static readonly type = "[Node] Open Nodes";
+
+	constructor() {}
 }
 
 export class NewFolder {
@@ -92,6 +98,24 @@ export class Rename {
 	constructor(public node_id: number, public new_name: string) {}
 }
 
+export class Download {
+	static readonly type = "[Node] Download";
+
+	constructor(public node_id: number[]) {}
+}
+
+export class DownloadNodes {
+	static readonly type = "[Node] Download Nodes";
+
+	constructor() {}
+}
+
+export class Upload {
+	static readonly type = "[Node] Upload";
+
+	constructor(public parent_id: number) {}
+}
+
 export class Delete {
 	static readonly type = "[Node] Delete";
 
@@ -102,4 +126,14 @@ export class DeleteNodes {
 	static readonly type = "[Node] Delete Nodes";
 
 	constructor() {}
+}
+
+export class Properties {
+	static readonly type = "[Node] Properties";
+
+	constructor(public node_id: number[]) {}
+}
+
+export class PropertiesNodes {
+	static readonly type = "[Node] Node Properties";
 }
