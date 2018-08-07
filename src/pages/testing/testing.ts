@@ -1,20 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import * as node from './node.json';
-import * as entity from './entity.json';
+import { Component, OnInit } from "@angular/core";
+import { NavController } from "ionic-angular";
+import * as node from "./node.json";
+import * as entity from "./entity.json";
+import * as test from "./test.json";
 
-import { FileBrowser } from '../../services/file-browser.service';
+import { FileBrowser } from "../../../dist";
 
 @Component({
-  selector: 'testing',
-  templateUrl: 'testing.html'
+	selector: "testing",
+	templateUrl: "testing.html"
 })
 export class TestPage implements OnInit {
+	constructor(
+		public navCtrl: NavController,
+		private fileBrowser: FileBrowser
+	) {}
 
-  constructor(public navCtrl: NavController, private fileBrowser: FileBrowser) {}
-
-  ngOnInit() {
-    // console.log(JSON.stringify(node));
-    this.fileBrowser.generateFileBrowser(<any>node, <any>entity, 0);
-  }
+	ngOnInit() {
+		// console.log(JSON.stringify(node));
+		this.fileBrowser.generateFileBrowser(<any>node, <any>entity, 0);
+	}
 }

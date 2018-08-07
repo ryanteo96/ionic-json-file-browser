@@ -27,11 +27,14 @@ export class FileBrowser {
 		this.nodes = nodes;
 		this.entities = entities;
 
-		if (node < 0) {
-			node = 0;
+		if (nodes.length === 0) {
+			return console.error("Invalid Node JSON");
+		}
+
+		if (entities.length === 0) {
+			return console.error("Invalid Entities JSON");
 		}
 		// TO-DO check if currentNode does not exist.
-
 		this.store.dispatch(new GenerateFileBrowser(<any>nodes, <any>entities));
 		this.store.dispatch(new GetNode(node));
 	}

@@ -14,4 +14,12 @@ export * from "./components/file-browser-container/file-browser-container.compon
 export * from "./services/file-browser.service";
 export * from "./services/file-browser-action-sheet.service";
 
-export { Open, NewFolder, Rename, Delete } from "./states/file-browser.actions";
+export {
+	Open,
+	NewFolder,
+	Rename,
+	Delete,
+	Download,
+	Upload,
+	Properties
+} from "./states/file-browser.actions";

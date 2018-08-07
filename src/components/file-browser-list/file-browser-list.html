@@ -10,7 +10,8 @@
                             {{ node.name }}
                         </div>
 
-                        <div *ngIf="node.selected" class="list-label active" (dblclick)="showNode(node)" oncontextmenu="return false" (contextmenu)="showActionSheet(node)">
+                        <div *ngIf="node.selected" class="list-label active" (click)="selectNode(node, $event)" (dblclick)="showNode(node)" oncontextmenu="return false"
+                            (contextmenu)="showActionSheet(node)">
                             <file-browser-icon [type]="node.type"></file-browser-icon>
                             {{ node.name }}
                         </div>
