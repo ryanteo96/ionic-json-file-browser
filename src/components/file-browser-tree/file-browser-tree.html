@@ -3,7 +3,7 @@
         <ion-grid class="file-browser-tree-grid">
             <ng-container *ngIf="nodes$">
                 <ng-container *ngFor="let node of nodes$ | async">
-                    <ng-container *ngIf="node.parent < 0">
+                    <ng-container *ngIf="!node.parent">
                         <ion-row class="tree-item" (click)="showNode(node)" oncontextmenu="return false" (contextmenu)="showActionSheet(node)">
                             <file-browser-icon (click)="toggleFolder(node)" [type]="node.type" [state]="node.collapsed">
                             </file-browser-icon>

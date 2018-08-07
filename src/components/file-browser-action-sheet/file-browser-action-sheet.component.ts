@@ -32,7 +32,7 @@ export class FileBrowserActionSheetComponent {
 
 	@Select(FileBrowserState.getMultiSelect) multiSelect$: Observable<Boolean>;
 
-	node: number;
+	node: string;
 
 	openBtn = {
 		icon: "open",

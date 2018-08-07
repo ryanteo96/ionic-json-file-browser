@@ -18,6 +18,6 @@ export class TestPage implements OnInit {
 
 	ngOnInit() {
 		// console.log(JSON.stringify(node));
-		this.fileBrowser.generateFileBrowser(<any>node, <any>entity, 0);
+		this.fileBrowser.generateFileBrowser(<any>node, <any>entity, "0");
 	}
 }

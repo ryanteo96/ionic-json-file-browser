@@ -13,14 +13,14 @@ export class GenerateFileBrowser {
 export class GetNode {
 	static readonly type = "[Node] Get";
 
-	constructor(public node: number) {}
+	constructor(public node: string) {}
 }
 
 export class SelectNode {
 	static readonly type = "[Node] Select";
 
 	constructor(
-		public node: number,
+		public node: string,
 		public multi: boolean,
 		public type: string
 	) {}
@@ -35,7 +35,7 @@ export class UnselectNode {
 export class GenerateHistory {
 	static readonly type = "[Browser] History";
 
-	constructor(public node: number) {}
+	constructor(public node: string) {}
 }
 
 export class GenerateTreeFirstLevel {
@@ -53,7 +53,7 @@ export class GenerateTreeLevels {
 export class ToggleFolder {
 	static readonly type = "[Tree] ToggleFolder";
 
-	constructor(public node: number) {}
+	constructor(public node: string) {}
 }
 
 export class SortNodes {
@@ -77,7 +77,7 @@ export class SetOS {
 export class Open {
 	static readonly type = "[Node] Open";
 
-	constructor(public node_id: number[]) {}
+	constructor(public node_id: string[]) {}
 }
 
 export class OpenNodes {
@@ -89,19 +89,19 @@ export class OpenNodes {
 export class NewFolder {
 	static readonly type = "[Node] New Folder";
 
-	constructor(public parent_id: number, public folder_name: string) {}
+	constructor(public parent_id: string, public folder_name: string) {}
 }
 
 export class Rename {
 	static readonly type = "[Node] Rename";
 
-	constructor(public node_id: number, public new_name: string) {}
+	constructor(public node_id: string, public new_name: string) {}
 }
 
 export class Download {
 	static readonly type = "[Node] Download";
 
-	constructor(public node_id: number[]) {}
+	constructor(public node_id: string[]) {}
 }
 
 export class DownloadNodes {
@@ -113,13 +113,13 @@ export class DownloadNodes {
 export class Upload {
 	static readonly type = "[Node] Upload";
 
-	constructor(public parent_id: number) {}
+	constructor(public parent_id: string) {}
 }
 
 export class Delete {
 	static readonly type = "[Node] Delete";
 
-	constructor(public node_id: number[]) {}
+	constructor(public node_id: string[]) {}
 }
 
 export class DeleteNodes {
@@ -131,7 +131,7 @@ export class DeleteNodes {
 export class Properties {
 	static readonly type = "[Node] Properties";
 
-	constructor(public node_id: number[]) {}
+	constructor(public node_id: string[]) {}
 }
 
 export class PropertiesNodes {

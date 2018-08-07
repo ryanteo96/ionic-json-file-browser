@@ -3,22 +3,22 @@
 /* ==================================================================================================== */
 
 export interface Node {
-	id: number;
-	parent: number;
-	child: number[];
+	id: string;
+	parent: string;
+	child: string[];
 }
 
 export interface Entity {
-	id: number;
+	id: string;
 	name: string;
 	type: string;
 }
 
 export interface NodeEntity {
-	id: number;
+	id: string;
 	level: number;
-	parent: number;
-	child: number[];
+	parent: string;
+	child: string[];
 	name: string;
 	type: string;
 	collapsed: boolean;
