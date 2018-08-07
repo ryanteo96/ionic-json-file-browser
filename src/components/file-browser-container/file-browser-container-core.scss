@@ -16,8 +16,10 @@
 }
 
 .main {
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
 	border-left: 1px solid #f2f2f2;
-	overflow: hidden;
 }
 
 .sidebar {
@@ -28,4 +30,10 @@
 file-browser-tree {
 	padding: 5px;
 	overflow: auto;
+}
+
+file-browser-list {
+	display: flex;
+	flex-direction: column;
+	flex: 1 1 0%;
 }

@@ -1,6 +1,6 @@
 <div class="file-browser-history">
     <ng-container *ngFor="let history of history$ | async">
-        <a class="history-item" (click)="showNodeInHistory(history.id)">{{ history.name }} asdasdasdasdasd</a>
+        <a class="history-item" (click)="showNodeInHistory(history.id)">{{ history.name }}</a>
         <ion-icon class="history-arrow" name="ios-arrow-forward"></ion-icon>
     </ng-container>
 </div>
