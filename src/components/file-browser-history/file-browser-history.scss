@@ -1,19 +1,27 @@
 .file-browser-history {
-  height: 40px;
-  border-bottom: 1px solid #f2f2f2;
+	font-size: 20px;
+	height: 40px;
+	border-bottom: 1px solid #f2f2f2;
+	padding: 5px 15px 5px 10px;
+	align-items: center;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	text-align: left;
+	direction: rtl;
 }
 
-.file-browser-history-row {
-  align-items: center;
-  height: 40px;
-  padding: 5px 15px 5px 10px;
-  font-size: 20px;
+.history-arrow {
+	padding: 5px;
 }
 
 .icon {
-  font-size: 15px;
+	font-size: 15px;
 }
 
 .history-item {
-  cursor: pointer;
+	cursor: pointer;
+	align-items: center;
+	text-align: center;
+	height: 100%;
 }

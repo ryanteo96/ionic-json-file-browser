@@ -16,19 +16,13 @@
 }
 
 .main {
-	display: grid;
-	grid-template-rows: 40px 40px auto;
 	border-left: 1px solid #f2f2f2;
-	overflow-y: hidden;
+	overflow: hidden;
 }
 
 .sidebar {
 	display: grid;
 	overflow: hidden;
-}
-
-file-browser-list {
-	overflow-y: auto;
 }
 
 file-browser-tree {

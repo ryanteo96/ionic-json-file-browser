@@ -4,7 +4,7 @@ import * as node from "./node.json";
 import * as entity from "./entity.json";
 import * as test from "./test.json";
 
-import { FileBrowser } from "../../../dist";
+import { FileBrowser } from "../../services/file-browser.service";
 
 @Component({
 	selector: "testing",
