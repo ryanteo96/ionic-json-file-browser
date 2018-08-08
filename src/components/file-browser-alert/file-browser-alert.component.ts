@@ -8,7 +8,8 @@ import { Store } from "@ngxs/store";
 import {
 	NewFolder,
 	Rename,
-	DeleteNodes
+	DeleteNodes,
+	Delete
 } from "../../states/file-browser.actions";
 
 @Component({
@@ -90,23 +91,30 @@ export class FileBrowserAlertComponent {
 				});
 				break;
 			}
-			case "delete": {
-				alert = this.alertCtrl.create({
-					title: "Delete",
-					message: "Are you sure to delete?",
-					buttons: [
-						{
-							text: "No"
-						},
-						{
-							text: "Yes",
-							handler: () => this.delete()
-						}
-					]
-				});
-				break;
-			}
 		}
+
+		alert.present();
+	}
+
+	presentDeleteAlert(type, node) {
+		let alert = this.alertCtrl.create({
+			title: "Delete",
+			message: "Are you sure to delete?",
+			buttons: [
+				{
+					text: "No"
+				},
+				{
+					text: "Yes",
+					handler: () => {
+						if (type === "list")
+							this.store.dispatch(new DeleteNodes());
+						if (type === "tree")
+							this.store.dispatch(new Delete([node]));
+					}
+				}
+			]
+		});
 
 		alert.present();
 	}
@@ -117,9 +125,5 @@ export class FileBrowserAlertComponent {
 
 	rename(data, node) {
 		this.store.dispatch(new Rename(node, data.name));
-	}
-
-	delete() {
-		this.store.dispatch(new DeleteNodes());
 	}
 }

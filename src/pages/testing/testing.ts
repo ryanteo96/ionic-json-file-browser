@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { NavController } from "ionic-angular";
 import * as node from "./node.json";
 import * as entity from "./entity.json";
-import * as test from "./test.json";
+// import * as test from "./test.json";
 
 import { FileBrowser } from "../../services/file-browser.service";
 
@@ -17,7 +17,6 @@ export class TestPage implements OnInit {
 	) {}
 
 	ngOnInit() {
-		// console.log(JSON.stringify(node));
 		this.fileBrowser.generateFileBrowser(<any>node, <any>entity, "0");
 	}
 }

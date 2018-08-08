@@ -12,7 +12,10 @@ import {
 	OpenNodes,
 	DownloadNodes,
 	PropertiesNodes,
-	Upload
+	Upload,
+	Open,
+	Download,
+	Properties
 } from "../../states/file-browser.actions";
 
 @Component({
@@ -31,18 +34,24 @@ export class FileBrowserActionSheetComponent {
 	@Select(FileBrowserState.getMultiSelect) multiSelect$: Observable<Boolean>;
 
 	node: string;
+	browser: string;
 
 	openBtn = {
 		icon: "open",
 		text: "Open",
-		handler: () => this.store.dispatch(new OpenNodes())
+		handler: () => {
+			if (this.browser === "list") this.store.dispatch(new OpenNodes());
+			if (this.browser === "tree")
+				this.store.dispatch(new Open([this.node]));
+		}
 	};
 
 	newFolderBtn = {
 		icon: "add",
 		text: "New Folder",
-		handler: () =>
-			this.fileBrowserContainerCore.presentAlert("new-folder", this.node)
+		handler: () => {
+			this.fileBrowserContainerCore.presentAlert("new-folder", this.node);
+		}
 	};
 
 	newFileBtn = {
@@ -68,23 +77,43 @@ export class FileBrowserActionSheetComponent {
 	downloadBtn = {
 		icon: "download",
 		text: "Download",
-		handler: () => this.store.dispatch(new DownloadNodes())
+		handler: () => {
+			if (this.browser === "list")
+				this.store.dispatch(new DownloadNodes());
+			if (this.browser === "tree")
+				this.store.dispatch(new Download([this.node]));
+		}
 	};
 
 	deleteBtn = {
 		icon: "trash",
 		text: "Delete",
-		handler: () =>
-			this.fileBrowserContainerCore.presentAlert("delete", this.node)
+		handler: () => {
+			if (this.browser === "list")
+				this.fileBrowserContainerCore.presentDeleteAlert(
+					"list",
+					this.node
+				);
+			if (this.browser === "tree")
+				this.fileBrowserContainerCore.presentDeleteAlert(
+					"tree",
+					this.node
+				);
+		}
 	};
 
 	propertiesBtn = {
 		icon: "information-circle",
 		text: "Properties",
-		handler: () => this.store.dispatch(new PropertiesNodes())
+		handler: () => {
+			if (this.browser === "list")
+				this.store.dispatch(new PropertiesNodes());
+			if (this.browser === "tree")
+				this.store.dispatch(new Properties([this.node]));
+		}
 	};
 
-	presentActionSheet(node) {
+	presentActionSheet(node, browser) {
 		let actionSheet;
 		let multi: Boolean;
 
@@ -103,6 +132,7 @@ export class FileBrowserActionSheetComponent {
 		}
 
 		this.node = node.id;
+		this.browser = browser;
 		actionSheet.present();
 	}
 

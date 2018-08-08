@@ -148,5 +148,20 @@
 		"id": "29",
 		"name": "Frederick",
 		"type": "excel"
+	},
+	{
+		"id": "30",
+		"name": "Olga",
+		"type": "file"
+	},
+	{
+		"id": "31",
+		"name": "Mueller",
+		"type": "file"
+	},
+	{
+		"id": "32",
+		"name": "Daniel",
+		"type": "file"
 	}
 ]

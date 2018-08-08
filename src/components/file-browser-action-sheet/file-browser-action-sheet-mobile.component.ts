@@ -3,10 +3,8 @@
 /* ==================================================================================================== */
 
 import { Component } from "@angular/core";
-import { Store, Select } from "@ngxs/store";
-import { Observable } from "rxjs";
+import { Store } from "@ngxs/store";
 import { ActionSheetController } from "ionic-angular";
-import { FileBrowserState } from "../../states/file-browser.state";
 import { FileBrowserContainerMobileComponent } from "../file-browser-container/file-browser-container-mobile.component";
 import {
 	OpenNodes,

@@ -42,7 +42,8 @@ export class FileBrowserTreeComponent implements OnInit {
 	}
 
 	showActionSheet(node) {
-		this.fileBrowserActionSheet.presentActionSheet(node);
+		this.unselectNodes();
+		this.fileBrowserActionSheet.presentActionSheet(node, "tree");
 	}
 
 	unselectNodes() {

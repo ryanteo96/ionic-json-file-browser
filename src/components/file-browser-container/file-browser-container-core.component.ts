@@ -49,6 +49,10 @@ export class FileBrowserContainerCoreComponent implements OnInit {
 		this.alertComponent.presentAlert(type, node);
 	}
 
+	presentDeleteAlert(type, node) {
+		this.alertComponent.presentDeleteAlert(type, node);
+	}
+
 	presentModal() {
 		this.modalComponent.presentModal();
 	}

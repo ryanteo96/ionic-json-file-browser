@@ -43,7 +43,7 @@ export class FileBrowserListComponent implements OnInit {
 			this.store.dispatch(new SelectNode(node.id, false, ""));
 		}
 
-		this.fileBrowserActionSheet.presentActionSheet(node);
+		this.fileBrowserActionSheet.presentActionSheet(node, "list");
 	}
 
 	selectNode(node, event) {

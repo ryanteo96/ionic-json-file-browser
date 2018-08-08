@@ -33,9 +33,9 @@ export interface FileBrowserStateModel {
 	entities: Entity[];
 	nodeEntity: NodeEntity[];
 	currentNode: NodeEntity;
+	selectedNode: NodeEntity;
 	childNodes: NodeEntity[];
 	history: NodeEntity[];
-	selectedNode: NodeEntity;
 	sort: String;
 	sidebar: Boolean;
 	os: String;
