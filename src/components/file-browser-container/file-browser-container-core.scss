@@ -16,10 +16,10 @@
 }
 
 .main {
-	display: grid;
-	grid-template-rows: 40px 40px auto;
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
 	border-left: 1px solid #f2f2f2;
-	overflow-y: hidden;
 }
 
 .sidebar {
@@ -27,11 +27,13 @@
 	overflow: hidden;
 }
 
-file-browser-list {
-	overflow-y: auto;
-}
-
 file-browser-tree {
 	padding: 5px;
 	overflow: auto;
+}
+
+file-browser-list {
+	display: flex;
+	flex-direction: column;
+	flex: 1 1 0%;
 }

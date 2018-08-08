@@ -6,7 +6,9 @@
 	cursor: pointer;
 	font-size: 15px;
 	align-items: center;
+	justify-content: left;
 	transition: 0.25s;
+	flex-wrap: nowrap;
 }
 
 .tree-item:hover {
@@ -21,9 +23,12 @@
 }
 
 file-browser-icon {
+	display: block;
 	text-align: center;
 	padding: 5px;
 	font-size: 18px;
-	width: 35px;
-	height: 30px;
+	min-width: 35px;
+	max-width: 35px;
+	min-height: 30px;
+	max-height: 30px;
 }

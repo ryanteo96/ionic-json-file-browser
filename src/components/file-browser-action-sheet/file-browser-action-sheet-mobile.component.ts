@@ -8,7 +8,12 @@ import { Observable } from "rxjs";
 import { ActionSheetController } from "ionic-angular";
 import { FileBrowserState } from "../../states/file-browser.state";
 import { FileBrowserContainerMobileComponent } from "../file-browser-container/file-browser-container-mobile.component";
-import { Open, OpenNodes } from "../../states/file-browser.actions";
+import {
+	OpenNodes,
+	DownloadNodes,
+	PropertiesNodes,
+	Upload
+} from "../../states/file-browser.actions";
 
 @Component({
 	selector: "file-browser-action-sheet-mobile",
@@ -23,16 +28,12 @@ export class FileBrowserActionSheetMobileComponent {
 		public fileBrowserContainerMobile: FileBrowserContainerMobileComponent
 	) {}
 
-	@Select(FileBrowserState.getOS) os$: Observable<String>;
-
-	node: number;
+	node: string;
 
 	openBtn = {
 		icon: "open",
 		text: "Open",
-		handler: () => {
-			this.store.dispatch(new OpenNodes());
-		}
+		handler: () => this.store.dispatch(new OpenNodes())
 	};
 
 	newFolderBtn = {
@@ -59,6 +60,18 @@ export class FileBrowserActionSheetMobileComponent {
 			this.fileBrowserContainerMobile.presentAlert("rename", this.node)
 	};
 
+	uploadBtn = {
+		icon: "cloud-upload",
+		text: "Upload",
+		handler: () => this.store.dispatch(new Upload(this.node))
+	};
+
+	downloadBtn = {
+		icon: "download",
+		text: "Download",
+		handler: () => this.store.dispatch(new DownloadNodes())
+	};
+
 	deleteBtn = {
 		icon: "trash",
 		text: "Delete",
@@ -66,11 +79,11 @@ export class FileBrowserActionSheetMobileComponent {
 			this.fileBrowserContainerMobile.presentAlert("delete", this.node)
 	};
 
-	// propertiesBtn = {
-	//     icon: 'information',
-	//     text: 'Properties',
-	//     handler: () => this.fileBrowserContainerMobile.presentModal(),
-	// }
+	propertiesBtn = {
+		icon: "information-circle",
+		text: "Properties",
+		handler: () => this.store.dispatch(new PropertiesNodes())
+	};
 
 	presentActionSheet(node) {
 		let actionSheet = this.actionSheetCtrl.create(
@@ -88,23 +101,35 @@ export class FileBrowserActionSheetMobileComponent {
 				actionSheet = {
 					title: "Options",
 					buttons: [
+						this.openBtn,
 						this.newFolderBtn,
-						// this.newFileBtn,
 						this.renameBtn,
-						this.deleteBtn
-						// this.propertiesBtn,
+						this.downloadBtn,
+						this.uploadBtn,
+						this.deleteBtn,
+						this.propertiesBtn
 					]
 				};
 				break;
 			}
-			case "document": {
+			case "file":
+			case "word":
+			case "excel":
+			case "powerpoint":
+			case "pdf":
+			case "code":
+			case "archive":
+			case "image":
+			case "video":
+			case "audio": {
 				actionSheet = {
 					title: "Options",
 					buttons: [
 						this.openBtn,
 						this.renameBtn,
-						this.deleteBtn
-						// this.propertiesBtn,
+						this.downloadBtn,
+						this.deleteBtn,
+						this.propertiesBtn
 					]
 				};
 				break;
@@ -113,9 +138,11 @@ export class FileBrowserActionSheetMobileComponent {
 				actionSheet = {
 					title: "Options",
 					buttons: [
+						this.openBtn,
 						this.renameBtn,
-						this.deleteBtn
-						// this.propertiesBtn,
+						this.downloadBtn,
+						this.deleteBtn,
+						this.propertiesBtn
 					]
 				};
 				break;

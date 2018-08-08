@@ -4,7 +4,7 @@ import * as node from "./node.json";
 import * as entity from "./entity.json";
 import * as test from "./test.json";
 
-import { FileBrowser } from "../../../dist";
+import { FileBrowser } from "../../services/file-browser.service";
 
 @Component({
 	selector: "testing",
@@ -18,6 +18,6 @@ export class TestPage implements OnInit {
 
 	ngOnInit() {
 		// console.log(JSON.stringify(node));
-		this.fileBrowser.generateFileBrowser(<any>node, <any>entity, 0);
+		this.fileBrowser.generateFileBrowser(<any>node, <any>entity, "0");
 	}
 }

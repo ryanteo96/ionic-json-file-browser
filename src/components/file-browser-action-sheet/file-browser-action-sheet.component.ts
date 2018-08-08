@@ -28,11 +28,9 @@ export class FileBrowserActionSheetComponent {
 		public fileBrowserContainerCore: FileBrowserContainerCoreComponent
 	) {}
 
-	// @Select(FileBrowserState.getOS) os$: Observable<String>;
-
 	@Select(FileBrowserState.getMultiSelect) multiSelect$: Observable<Boolean>;
 
-	node: number;
+	node: string;
 
 	openBtn = {
 		icon: "open",

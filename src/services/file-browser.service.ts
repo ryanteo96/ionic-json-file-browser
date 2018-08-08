@@ -23,7 +23,7 @@ export class FileBrowser {
 	constructor(private store: Store) {}
 
 	// Generating the nodes and entities based on JSON
-	generateFileBrowser(nodes: Node[], entities: Entity[], node: number) {
+	generateFileBrowser(nodes: Node[], entities: Entity[], node: string) {
 		this.nodes = nodes;
 		this.entities = entities;
 

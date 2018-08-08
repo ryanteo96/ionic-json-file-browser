@@ -8,7 +8,11 @@ import { Observable } from "rxjs";
 import { Entity } from "../../states/file-browser.model";
 import { FileBrowser } from "../../services/file-browser.service";
 import { FileBrowserState } from "../../states/file-browser.state";
-import { GetNode, SelectNode } from "../../states/file-browser.actions";
+import {
+	GetNode,
+	SelectNode,
+	UnselectNode
+} from "../../states/file-browser.actions";
 import { FileBrowserActionSheetComponent } from "../file-browser-action-sheet/file-browser-action-sheet.component";
 
 @Component({
@@ -43,10 +47,16 @@ export class FileBrowserListComponent implements OnInit {
 	}
 
 	selectNode(node, event) {
+		event.stopPropagation();
+
 		if (event.ctrlKey || event.metaKey) {
 			this.store.dispatch(new SelectNode(node.id, true, "alt"));
 		} else if (event.shiftKey) {
 			this.store.dispatch(new SelectNode(node.id, true, "shift"));
 		} else this.store.dispatch(new SelectNode(node.id, false, ""));
+	}
+
+	unselectNodes() {
+		this.store.dispatch(new UnselectNode());
 	}
 }

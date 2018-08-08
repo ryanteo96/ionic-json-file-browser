@@ -6,7 +6,7 @@ import { Component, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
 import { Store, Select } from "@ngxs/store";
 import { FileBrowserState } from "../../states/file-browser.state";
-import { GetNode } from "../../states/file-browser.actions";
+import { GetNode, UnselectNode } from "../../states/file-browser.actions";
 
 @Component({
 	selector: "file-browser-history",
@@ -22,5 +22,9 @@ export class FileBrowserHistoryComponent implements OnInit {
 
 	showNodeInHistory(node) {
 		this.store.dispatch(new GetNode(node));
+	}
+
+	unselectNodes() {
+		this.store.dispatch(new UnselectNode());
 	}
 }

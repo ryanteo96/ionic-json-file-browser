@@ -1,8 +1,6 @@
-<div class="file-browser-history">
-    <ion-row class="file-browser-history-row">
-        <ng-container *ngFor="let history of history$ | async">
-            <ion-icon class="history-arrow" name="ios-arrow-forward">&nbsp;&nbsp;</ion-icon>
-            <a class="history-item" (click)="showNodeInHistory(history.id)">{{ history.name }} &nbsp;</a>
-        </ng-container>
-    </ion-row>
+<div class="file-browser-history" (click)="unselectNodes()">
+    <ng-container *ngFor="let history of history$ | async">
+        <a class="history-item" (click)="showNodeInHistory(history.id)">{{ history.name }}</a>
+        <ion-icon class="history-arrow" name="ios-arrow-forward"></ion-icon>
+    </ng-container>
 </div>

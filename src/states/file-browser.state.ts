@@ -322,7 +322,7 @@ export class FileBrowserState implements ErrorHandler {
 
 		// Assigning first level of tree.
 		state.nodeEntity.forEach(function(node) {
-			if (node.parent < 0) {
+			if (!node.parent) {
 				node.level = 0;
 			}
 		});

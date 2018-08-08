@@ -1,5 +1,5 @@
-<div class="file-browser-list">
-    <ion-list>
+<div class="file-browser-list-wrapper" (click)="unselectNodes()">
+    <ion-list class="file-browser-list">
         <ng-container *ngIf="nodes$">
             <ng-container *ngFor="let node of nodes$ | async">
                 <div class="list-item">
