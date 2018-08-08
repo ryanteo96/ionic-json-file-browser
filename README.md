@@ -4,6 +4,15 @@
 ![Imgur](https://i.imgur.com/0mllPjV.png)
 Ionic JSON File Browser is a custom Ionic module that can render a file browser.
 
+## Overview
+
+Ionic JSON File Browser is based on the following libraries & tools:
+
+-   [Ionic 3](https://github.com/ionic-team/ionic)
+-   [ngxs](https://github.com/ngxs/store)
+-   [Ionicons](https://github.com/ionic-team/ionicons)
+-   [Font Awesome Icons](https://fontawesome.com/icons?d=gallery)
+
 ## Features
 
 -   [x] List view
@@ -53,7 +62,7 @@ export class HomePage implements OnInit {
 	constructor(public fileBrowser: FileBrowser) {}
 
 	ngOnInit() {
-		this.fileBrowser.generateFileBrowser(node, entity, 0);
+		this.fileBrowser.generateFileBrowser(node, entity, "0");
 	}
 }
 ```
