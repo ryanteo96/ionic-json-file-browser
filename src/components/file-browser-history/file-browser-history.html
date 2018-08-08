@@ -1,4 +1,4 @@
-<div class="file-browser-history">
+<div class="file-browser-history" (click)="unselectNodes()">
     <ng-container *ngFor="let history of history$ | async">
         <a class="history-item" (click)="showNodeInHistory(history.id)">{{ history.name }}</a>
         <ion-icon class="history-arrow" name="ios-arrow-forward"></ion-icon>
