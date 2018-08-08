@@ -8,10 +8,7 @@ import {
 	LoadingController,
 	ActionSheetController
 } from "ionic-angular";
-import { Observable } from "rxjs";
-import { Select } from "@ngxs/store";
 import { FileBrowser } from "../../services/file-browser.service";
-import { FileBrowserState } from "../../states/file-browser.state";
 import { FileBrowserAlertComponent } from "../file-browser-alert/file-browser-alert.component";
 import { FileBrowserModalComponent } from "../file-browser-modal/file-browser-modal.component";
 
@@ -22,8 +19,6 @@ import { FileBrowserModalComponent } from "../file-browser-modal/file-browser-mo
 	providers: [FileBrowserAlertComponent, FileBrowserModalComponent]
 })
 export class FileBrowserContainerMobileComponent implements OnInit {
-	@Select(FileBrowserState.getSidebar) sidebar$: Observable<Boolean>;
-
 	constructor(
 		public navCtrl: NavController,
 		public loadingCtrl: LoadingController,
@@ -47,6 +42,10 @@ export class FileBrowserContainerMobileComponent implements OnInit {
 
 	presentAlert(type, node) {
 		this.alertComponent.presentAlert(type, node);
+	}
+
+	presentDeleteAlert(type, node) {
+		this.alertComponent.presentDeleteAlert(type, node);
 	}
 
 	presentModal() {

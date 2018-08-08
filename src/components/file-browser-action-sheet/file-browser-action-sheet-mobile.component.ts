@@ -4,12 +4,13 @@
 
 import { Component } from "@angular/core";
 import { Store } from "@ngxs/store";
+import { Observable } from "rxjs";
 import { ActionSheetController } from "ionic-angular";
 import { FileBrowserContainerMobileComponent } from "../file-browser-container/file-browser-container-mobile.component";
 import {
-	OpenNodes,
-	DownloadNodes,
-	PropertiesNodes,
+	Open,
+	Download,
+	Properties,
 	Upload
 } from "../../states/file-browser.actions";
 
@@ -31,7 +32,7 @@ export class FileBrowserActionSheetMobileComponent {
 	openBtn = {
 		icon: "open",
 		text: "Open",
-		handler: () => this.store.dispatch(new OpenNodes())
+		handler: () => this.store.dispatch(new Open([this.node]))
 	};
 
 	newFolderBtn = {
@@ -67,20 +68,23 @@ export class FileBrowserActionSheetMobileComponent {
 	downloadBtn = {
 		icon: "download",
 		text: "Download",
-		handler: () => this.store.dispatch(new DownloadNodes())
+		handler: () => this.store.dispatch(new Download([this.node]))
 	};
 
 	deleteBtn = {
 		icon: "trash",
 		text: "Delete",
 		handler: () =>
-			this.fileBrowserContainerMobile.presentAlert("delete", this.node)
+			this.fileBrowserContainerMobile.presentDeleteAlert(
+				"tree",
+				this.node
+			)
 	};
 
 	propertiesBtn = {
 		icon: "information-circle",
 		text: "Properties",
-		handler: () => this.store.dispatch(new PropertiesNodes())
+		handler: () => this.store.dispatch(new Properties([this.node]))
 	};
 
 	presentActionSheet(node) {
