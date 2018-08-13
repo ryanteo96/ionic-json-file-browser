@@ -1,6 +1,6 @@
 {
 	"name": "ionic-json-file-browser",
-	"version": "0.3.2",
+	"version": "0.3.3",
 	"description": "Ionic module for file browser based on JSON.",
 	"author": "Ryan Teo Yii Wen",
 	"license": "ISC",
