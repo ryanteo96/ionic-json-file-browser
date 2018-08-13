@@ -2,14 +2,18 @@
 /* File Browser Container Component                                     								*/
 /* ==================================================================================================== */
 
+/* Module imports */
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { NavController, Platform } from "ionic-angular";
 import { LoadingController, ActionSheetController } from "ionic-angular";
+/* State imports */
 import { Store } from "@ngxs/store";
-import { FileBrowser } from "../../services/file-browser.service";
+import { SetOS } from "../../states/file-browser.actions";
+/* Component imports */
 import { FileBrowserContainerCoreComponent } from "./file-browser-container-core.component";
 import { FileBrowserContainerMobileComponent } from "./file-browser-container-mobile.component";
-import { SetOS } from "../../states/file-browser.actions";
+/* Service imports */
+import { FileBrowser } from "../../services/file-browser.service";
 
 @Component({
 	selector: "file-browser",

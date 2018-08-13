@@ -5,7 +5,9 @@
 /* tree and also toggle the tree view in file browser.                                                  */
 /* ==================================================================================================== */
 
+/* Module imports */
 import { Injectable } from "@angular/core";
+/* State imports */
 import { Store } from "@ngxs/store";
 import { Node, Entity } from "../states/file-browser.model";
 import {

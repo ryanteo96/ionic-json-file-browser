@@ -2,12 +2,12 @@
 /* File Browser Action Sheet Component                                     								*/
 /* ==================================================================================================== */
 
+/* Module imports */
 import { Component } from "@angular/core";
-import { Store, Select } from "@ngxs/store";
 import { Observable } from "rxjs";
 import { ActionSheetController } from "ionic-angular";
-import { FileBrowserState } from "../../states/file-browser.state";
-import { FileBrowserContainerCoreComponent } from "../file-browser-container/file-browser-container-core.component";
+/* State imports */
+import { Store, Select } from "@ngxs/store";
 import {
 	OpenNodes,
 	DownloadNodes,
@@ -17,6 +17,9 @@ import {
 	Download,
 	Properties
 } from "../../states/file-browser.actions";
+import { FileBrowserState } from "../../states/file-browser.state";
+/* Component imports */
+import { FileBrowserContainerCoreComponent } from "../file-browser-container/file-browser-container-core.component";
 
 @Component({
 	selector: "file-browser-action-sheet",

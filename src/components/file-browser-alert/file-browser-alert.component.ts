@@ -2,8 +2,10 @@
 /* File Browser Alert Component                                     									*/
 /* ==================================================================================================== */
 
+/* Module imports */
 import { Component } from "@angular/core";
 import { AlertController } from "ionic-angular";
+/* State imports */
 import { Store } from "@ngxs/store";
 import {
 	NewFolder,

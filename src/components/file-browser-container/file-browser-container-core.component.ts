@@ -2,6 +2,7 @@
 /* File Browser Container Component (Desktop)                             															*/
 /* ==================================================================================================== */
 
+/* Module imports */
 import { Component, OnInit } from "@angular/core";
 import {
 	NavController,
@@ -9,10 +10,13 @@ import {
 	ActionSheetController
 } from "ionic-angular";
 import { Observable } from "rxjs";
+/* State imports */
 import { Select } from "@ngxs/store";
-import { FileBrowser } from "../../services/file-browser.service";
 import { FileBrowserState } from "../../states/file-browser.state";
+/* Component imports */
 import { FileBrowserAlertComponent } from "../file-browser-alert/file-browser-alert.component";
+/* Service imports */
+import { FileBrowser } from "../../services/file-browser.service";
 
 @Component({
 	selector: "file-browser-core",

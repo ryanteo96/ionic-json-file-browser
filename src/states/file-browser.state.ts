@@ -2,8 +2,10 @@
 /* File Browser State 																					*/
 /* ==================================================================================================== */
 
-import { State, Action, StateContext, Selector, Store } from "@ngxs/store";
+/* Module imports */
 import { ErrorHandler } from "@angular/core";
+/* State imports */
+import { State, Action, StateContext, Selector, Store } from "@ngxs/store";
 import { Node, Entity, NodeEntity } from "./file-browser.model";
 import {
 	GenerateFileBrowser,
@@ -26,6 +28,7 @@ import {
 	PropertiesNodes,
 	Properties
 } from "./file-browser.actions";
+/* Service imports */
 import { NodeSortingService } from "../services/node-sorting.service";
 
 export interface FileBrowserStateModel {

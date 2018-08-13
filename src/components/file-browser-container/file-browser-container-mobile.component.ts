@@ -2,14 +2,17 @@
 /* File Browser Container Component (Mobile)                            																*/
 /* ==================================================================================================== */
 
+/* Module imports */
 import { Component, OnInit } from "@angular/core";
 import {
 	NavController,
 	LoadingController,
 	ActionSheetController
 } from "ionic-angular";
-import { FileBrowser } from "../../services/file-browser.service";
+/* Component imports */
 import { FileBrowserAlertComponent } from "../file-browser-alert/file-browser-alert.component";
+/* Service imports */
+import { FileBrowser } from "../../services/file-browser.service";
 
 @Component({
 	selector: "file-browser-mobile",

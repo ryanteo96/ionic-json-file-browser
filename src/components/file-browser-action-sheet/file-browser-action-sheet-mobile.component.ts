@@ -2,17 +2,20 @@
 /* File Browser Action Sheet Component (Mobile)                                    						*/
 /* ==================================================================================================== */
 
+/* Module imports */
 import { Component } from "@angular/core";
 import { Store } from "@ngxs/store";
 import { Observable } from "rxjs";
 import { ActionSheetController } from "ionic-angular";
-import { FileBrowserContainerMobileComponent } from "../file-browser-container/file-browser-container-mobile.component";
+/* State imports */
 import {
 	Open,
 	Download,
 	Properties,
 	Upload
 } from "../../states/file-browser.actions";
+/* Component imports */
+import { FileBrowserContainerMobileComponent } from "../file-browser-container/file-browser-container-mobile.component";
 
 @Component({
 	selector: "file-browser-action-sheet-mobile",

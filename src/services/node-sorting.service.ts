@@ -4,7 +4,9 @@
 /* Service to sort nodes in ascending or descending order                                               */
 /* ==================================================================================================== */
 
+/* Module imports */
 import { Injectable } from "@angular/core";
+/* State imports */
 import { NodeEntity } from "../states/file-browser.model";
 
 @Injectable()

@@ -2,19 +2,23 @@
 /* File Browser List Component																			*/
 /* ==================================================================================================== */
 
+/* Module imports */
 import { Component, OnInit } from "@angular/core";
 import { Store, Select } from "@ngxs/store";
 import { Observable } from "rxjs";
-import { Entity } from "../../states/file-browser.model";
-import { FileBrowser } from "../../services/file-browser.service";
-import { FileBrowserState } from "../../states/file-browser.state";
+/* State imports */
 import {
 	GetNode,
 	SelectNode,
 	UnselectNode,
 	Open
 } from "../../states/file-browser.actions";
+import { Entity } from "../../states/file-browser.model";
+import { FileBrowserState } from "../../states/file-browser.state";
+/* Component imports */
 import { FileBrowserActionSheetComponent } from "../file-browser-action-sheet/file-browser-action-sheet.component";
+/* Service imports */
+import { FileBrowser } from "../../services/file-browser.service";
 
 @Component({
 	selector: "file-browser-list",

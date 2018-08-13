@@ -2,14 +2,18 @@
 /* File Browser List Component (Mobile)																	*/
 /* ==================================================================================================== */
 
+/* Module imports */
 import { Component, OnInit } from "@angular/core";
-import { Store, Select } from "@ngxs/store";
 import { Observable } from "rxjs";
+/* State imports */
+import { Store, Select } from "@ngxs/store";
 import { Entity } from "../../states/file-browser.model";
-import { FileBrowser } from "../../services/file-browser.service";
 import { FileBrowserState } from "../../states/file-browser.state";
 import { GetNode } from "../../states/file-browser.actions";
+/* Component imports */
 import { FileBrowserActionSheetMobileComponent } from "../file-browser-action-sheet/file-browser-action-sheet-mobile.component";
+/* Service imports */
+import { FileBrowser } from "../../services/file-browser.service";
 
 @Component({
 	selector: "file-browser-list-mobile",

@@ -2,12 +2,15 @@
 /* File Browser Header Component                                										*/
 /* ==================================================================================================== */
 
+/* Module imports */
 import { Component, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
+/* State imports */
 import { Store, Select } from "@ngxs/store";
 import { FileBrowserState } from "../../states/file-browser.state";
-import { FileBrowser } from "../../services/file-browser.service";
 import { UnselectNode } from "../../states/file-browser.actions";
+/* Service imports */
+import { FileBrowser } from "../../services/file-browser.service";
 
 @Component({
 	selector: "file-browser-header",
