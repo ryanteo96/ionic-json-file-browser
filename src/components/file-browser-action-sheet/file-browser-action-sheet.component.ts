@@ -116,6 +116,12 @@ export class FileBrowserActionSheetComponent {
 		}
 	};
 
+	cancelBtn = {
+		icon: "close",
+		text: "Cancel",
+		handler: () => {}
+	};
+
 	presentActionSheet(node, browser) {
 		let actionSheet;
 		let multi: Boolean;
@@ -153,7 +159,8 @@ export class FileBrowserActionSheetComponent {
 						this.downloadBtn,
 						this.uploadBtn,
 						this.deleteBtn,
-						this.propertiesBtn
+						this.propertiesBtn,
+						this.cancelBtn
 					]
 				};
 				break;
@@ -175,7 +182,8 @@ export class FileBrowserActionSheetComponent {
 						this.renameBtn,
 						this.downloadBtn,
 						this.deleteBtn,
-						this.propertiesBtn
+						this.propertiesBtn,
+						this.cancelBtn
 					]
 				};
 				break;
@@ -187,7 +195,8 @@ export class FileBrowserActionSheetComponent {
 						this.openBtn,
 						this.downloadBtn,
 						this.deleteBtn,
-						this.propertiesBtn
+						this.propertiesBtn,
+						this.cancelBtn
 					]
 				};
 				break;
@@ -200,7 +209,8 @@ export class FileBrowserActionSheetComponent {
 						this.renameBtn,
 						this.downloadBtn,
 						this.deleteBtn,
-						this.propertiesBtn
+						this.propertiesBtn,
+						this.cancelBtn
 					]
 				};
 				break;
