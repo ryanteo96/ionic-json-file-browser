@@ -39,6 +39,7 @@ export class FileBrowserListComponent implements OnInit {
 
 	showNode(node) {
 		if (node.type === "folder") this.store.dispatch(new GetNode(node.id));
+		else this.store.dispatch(new Open([node.id]));
 	}
 
 	showActionSheet(node) {

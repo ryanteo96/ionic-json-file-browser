@@ -1,18 +1,20 @@
 .file-browser-container-mobile {
-    display: grid;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background: rgb(255, 255, 255);
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background: rgb(255, 255, 255);
+	overscroll-behavior: auto;
 }
 
 .main-mobile {
-    display: grid;
-    grid-template-rows: 40px 40px auto;
-    border-left: 1px solid #f2f2f2;
-    overflow-y: hidden;
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+	border-left: 1px solid #f2f2f2;
 }
 
 file-browser-list-mobile {
-    overflow-y: scroll;
+	display: flex;
+	flex-direction: column;
+	flex: 1 1 0%;
 }
