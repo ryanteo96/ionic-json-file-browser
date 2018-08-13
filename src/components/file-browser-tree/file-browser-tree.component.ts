@@ -10,7 +10,8 @@ import { NodeEntity } from "../../states/file-browser.model";
 import {
 	ToggleFolder,
 	GetNode,
-	UnselectNode
+	UnselectNode,
+	Open
 } from "../../states/file-browser.actions";
 import { FileBrowser } from "../../services/file-browser.service";
 import { FileBrowserActionSheetComponent } from "../file-browser-action-sheet/file-browser-action-sheet.component";
@@ -48,5 +49,9 @@ export class FileBrowserTreeComponent implements OnInit {
 
 	unselectNodes() {
 		this.store.dispatch(new UnselectNode());
+	}
+
+	openNode(node) {
+		this.store.dispatch(new Open([node.id]));
 	}
 }

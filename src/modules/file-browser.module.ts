@@ -15,20 +15,18 @@ import { NodeSortingService } from "../services/node-sorting.service";
 /* State imports */
 import { FileBrowserState } from "../states/file-browser.state";
 /* Component imports */
-import { FileBrowserContainerComponent } from "../components/file-browser-container/file-browser-container.component";
-import { FileBrowserContainerCoreComponent } from "../components/file-browser-container/file-browser-container-core.component";
-import { FileBrowserContainerMobileComponent } from "../components/file-browser-container/file-browser-container-mobile.component";
-import { FileBrowserHistoryComponent } from "../components/file-browser-history/file-browser-history.component";
-import { FileBrowserHeaderComponent } from "../components/file-browser-header/file-browser-header.component";
-import { FileBrowserListComponent } from "../components/file-browser-list/file-browser-list.component";
-import { FileBrowserListMobileComponent } from "../components/file-browser-list/file-browser-list-mobile.component";
-import { FileBrowserTreeComponent } from "../components/file-browser-tree/file-browser-tree.component";
-import { FileBrowserIconComponent } from "../components/file-browser-icon/file-browser-icon.component";
 import { FileBrowserActionSheetComponent } from "../components/file-browser-action-sheet/file-browser-action-sheet.component";
 import { FileBrowserActionSheetMobileComponent } from "../components/file-browser-action-sheet/file-browser-action-sheet-mobile.component";
 import { FileBrowserAlertComponent } from "../components/file-browser-alert/file-browser-alert.component";
-import { FileBrowserModalComponent } from "../components/file-browser-modal/file-browser-modal.component";
-import { FileBrowserPropertiesComponent } from "../components/file-browser-properties/file-browser-properties.component";
+import { FileBrowserContainerComponent } from "../components/file-browser-container/file-browser-container.component";
+import { FileBrowserContainerCoreComponent } from "../components/file-browser-container/file-browser-container-core.component";
+import { FileBrowserContainerMobileComponent } from "../components/file-browser-container/file-browser-container-mobile.component";
+import { FileBrowserHeaderComponent } from "../components/file-browser-header/file-browser-header.component";
+import { FileBrowserHistoryComponent } from "../components/file-browser-history/file-browser-history.component";
+import { FileBrowserIconComponent } from "../components/file-browser-icon/file-browser-icon.component";
+import { FileBrowserListComponent } from "../components/file-browser-list/file-browser-list.component";
+import { FileBrowserListMobileComponent } from "../components/file-browser-list/file-browser-list-mobile.component";
+import { FileBrowserTreeComponent } from "../components/file-browser-tree/file-browser-tree.component";
 
 @NgModule({
 	imports: [
@@ -39,42 +37,37 @@ import { FileBrowserPropertiesComponent } from "../components/file-browser-prope
 		NgxsLoggerPluginModule.forRoot()
 	],
 	declarations: [
-		FileBrowserContainerComponent,
-		FileBrowserContainerCoreComponent,
-		FileBrowserContainerMobileComponent,
-		FileBrowserHistoryComponent,
-		FileBrowserHeaderComponent,
-		FileBrowserListComponent,
-		FileBrowserListMobileComponent,
-		FileBrowserTreeComponent,
-		FileBrowserIconComponent,
 		FileBrowserActionSheetComponent,
 		FileBrowserActionSheetMobileComponent,
 		FileBrowserAlertComponent,
-		FileBrowserModalComponent,
-		FileBrowserPropertiesComponent
+		FileBrowserContainerComponent,
+		FileBrowserContainerCoreComponent,
+		FileBrowserContainerMobileComponent,
+		FileBrowserHeaderComponent,
+		FileBrowserHistoryComponent,
+		FileBrowserIconComponent,
+		FileBrowserListComponent,
+		FileBrowserListMobileComponent,
+		FileBrowserTreeComponent
 	],
 	exports: [
-		FileBrowserContainerComponent,
-		FileBrowserContainerCoreComponent,
-		FileBrowserContainerMobileComponent,
-		FileBrowserHistoryComponent,
-		FileBrowserHeaderComponent,
-		FileBrowserListComponent,
-		FileBrowserListMobileComponent,
-		FileBrowserTreeComponent,
-		FileBrowserIconComponent,
 		FileBrowserActionSheetComponent,
 		FileBrowserActionSheetMobileComponent,
 		FileBrowserAlertComponent,
-		FileBrowserModalComponent,
-		FileBrowserPropertiesComponent
+		FileBrowserContainerComponent,
+		FileBrowserContainerCoreComponent,
+		FileBrowserContainerMobileComponent,
+		FileBrowserHeaderComponent,
+		FileBrowserHistoryComponent,
+		FileBrowserIconComponent,
+		FileBrowserListComponent,
+		FileBrowserListMobileComponent,
+		FileBrowserTreeComponent
 	],
 	entryComponents: [
 		FileBrowserContainerComponent,
 		FileBrowserContainerCoreComponent,
-		FileBrowserContainerMobileComponent,
-		FileBrowserPropertiesComponent
+		FileBrowserContainerMobileComponent
 	]
 })
 export class FileBrowserModule {

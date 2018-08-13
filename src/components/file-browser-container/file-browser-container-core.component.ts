@@ -13,13 +13,12 @@ import { Select } from "@ngxs/store";
 import { FileBrowser } from "../../services/file-browser.service";
 import { FileBrowserState } from "../../states/file-browser.state";
 import { FileBrowserAlertComponent } from "../file-browser-alert/file-browser-alert.component";
-import { FileBrowserModalComponent } from "../file-browser-modal/file-browser-modal.component";
 
 @Component({
 	selector: "file-browser-core",
 	templateUrl: "file-browser-container-core.html",
 	styleUrls: ["file-browser-container-core.scss"],
-	providers: [FileBrowserAlertComponent, FileBrowserModalComponent]
+	providers: [FileBrowserAlertComponent]
 })
 export class FileBrowserContainerCoreComponent implements OnInit {
 	@Select(FileBrowserState.getSidebar) sidebar$: Observable<Boolean>;
@@ -29,8 +28,7 @@ export class FileBrowserContainerCoreComponent implements OnInit {
 		public loadingCtrl: LoadingController,
 		public actionSheetCtrl: ActionSheetController,
 		public fileBrowser: FileBrowser,
-		public alertComponent: FileBrowserAlertComponent,
-		public modalComponent: FileBrowserModalComponent
+		public alertComponent: FileBrowserAlertComponent
 	) {}
 
 	ngOnInit() {
@@ -51,9 +49,5 @@ export class FileBrowserContainerCoreComponent implements OnInit {
 
 	presentDeleteAlert(type, node) {
 		this.alertComponent.presentDeleteAlert(type, node);
-	}
-
-	presentModal() {
-		this.modalComponent.presentModal();
 	}
 }

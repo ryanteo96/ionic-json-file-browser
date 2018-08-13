@@ -10,13 +10,12 @@ import {
 } from "ionic-angular";
 import { FileBrowser } from "../../services/file-browser.service";
 import { FileBrowserAlertComponent } from "../file-browser-alert/file-browser-alert.component";
-import { FileBrowserModalComponent } from "../file-browser-modal/file-browser-modal.component";
 
 @Component({
 	selector: "file-browser-mobile",
 	templateUrl: "file-browser-container-mobile.html",
 	styleUrls: ["file-browser-container-mobile.scss"],
-	providers: [FileBrowserAlertComponent, FileBrowserModalComponent]
+	providers: [FileBrowserAlertComponent]
 })
 export class FileBrowserContainerMobileComponent implements OnInit {
 	constructor(
@@ -24,8 +23,7 @@ export class FileBrowserContainerMobileComponent implements OnInit {
 		public loadingCtrl: LoadingController,
 		public actionSheetCtrl: ActionSheetController,
 		public fileBrowser: FileBrowser,
-		public alertComponent: FileBrowserAlertComponent,
-		public modalComponent: FileBrowserModalComponent
+		public alertComponent: FileBrowserAlertComponent
 	) {}
 
 	ngOnInit() {
@@ -46,9 +44,5 @@ export class FileBrowserContainerMobileComponent implements OnInit {
 
 	presentDeleteAlert(type, node) {
 		this.alertComponent.presentDeleteAlert(type, node);
-	}
-
-	presentModal() {
-		this.modalComponent.presentModal();
 	}
 }

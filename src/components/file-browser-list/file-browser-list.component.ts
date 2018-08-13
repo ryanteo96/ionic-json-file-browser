@@ -11,7 +11,8 @@ import { FileBrowserState } from "../../states/file-browser.state";
 import {
 	GetNode,
 	SelectNode,
-	UnselectNode
+	UnselectNode,
+	Open
 } from "../../states/file-browser.actions";
 import { FileBrowserActionSheetComponent } from "../file-browser-action-sheet/file-browser-action-sheet.component";
 
@@ -58,5 +59,9 @@ export class FileBrowserListComponent implements OnInit {
 
 	unselectNodes() {
 		this.store.dispatch(new UnselectNode());
+	}
+
+	openNode(node) {
+		this.store.dispatch(new Open([node.id]));
 	}
 }

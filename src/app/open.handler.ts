@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Actions, ofActionSuccessful } from "@ngxs/store";
-import { Properties } from "../states/file-browser.actions";
+import { Open } from "../states/file-browser.actions";
 
 @Injectable()
 export class OpenHandler {
@@ -8,7 +8,7 @@ export class OpenHandler {
 		console.log("open handler created");
 
 		this.actions$
-			.pipe(ofActionSuccessful(Properties))
+			.pipe(ofActionSuccessful(Open))
 			.subscribe(({ node_id }) => {
 				// substitute this with your own implementation
 				console.log(node_id);

@@ -27,16 +27,12 @@ export class FileBrowserContainerComponent implements OnInit {
 		public plt: Platform,
 		public store: Store
 	) {
-		// console.log(this.plt.platforms());
-
 		if (this.plt.is("core")) {
 			this.rootPage = FileBrowserContainerCoreComponent;
 			this.store.dispatch(new SetOS("core"));
-			// this.nav.push(this.corePage);
 		} else if (this.plt.is("mobile")) {
 			this.rootPage = FileBrowserContainerMobileComponent;
 			this.store.dispatch(new SetOS("mobile"));
-			// this.nav.push(this.mobilePage);
 		}
 	}
 

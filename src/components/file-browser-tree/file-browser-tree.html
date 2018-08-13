@@ -1,10 +1,9 @@
 <div class="file-browser-tree" (click)="unselectNodes()">
     <ion-list class="file-browser-tree-list" no-lines>
-        <!-- <ion-grid class="file-browser-tree-grid"> -->
         <ng-container *ngIf="nodes$">
             <ng-container *ngFor="let node of nodes$ | async">
                 <ng-container *ngIf="!node.parent">
-                    <ion-row class="tree-item" (click)="showNode(node)" oncontextmenu="return false" (contextmenu)="showActionSheet(node)">
+                    <ion-row class="tree-item" (click)="showNode(node)" oncontextmenu="return false" (contextmenu)="showActionSheet(node)" (dblclick)="openNode(node)">
                         <file-browser-icon (click)="toggleFolder(node)" [type]="node.type" [state]="node.collapsed">
                         </file-browser-icon>
                         {{ node.name }}
@@ -19,7 +18,8 @@
         <ng-template #subtree let-parent>
             <ng-container *ngFor="let node of nodes$ | async">
                 <ng-container *ngIf="node.parent === parent.id">
-                    <ion-row class="tree-item row {{'item-level-' + node.level}}" (click)="showNode(node)" oncontextmenu="return false" (contextmenu)="showActionSheet(node)">
+                    <ion-row class="tree-item row {{'item-level-' + node.level}}" (click)="showNode(node)" oncontextmenu="return false" (contextmenu)="showActionSheet(node)"
+                        (dblclick)="openNode(node)">
                         <file-browser-icon (click)="toggleFolder(node)" [type]="node.type" [state]="node.collapsed">
                         </file-browser-icon>
                         {{ node.name }}
@@ -31,6 +31,5 @@
                 </ng-container>
             </ng-container>
         </ng-template>
-        <!-- </ion-grid> -->
     </ion-list>
 </div>
